@@ -94,34 +94,6 @@ section.module.content .container {
     padding: 20px;
   }
 
-
-section.module.parallax-1{
-    background-image: url("https://wallpapers.com/images/hd/nature-landscape-hd-usqznq19dscdjkf8.webp");
-    background-repeat: no-repeat;
-    height: 50vh;
-}
-
-section.module.parallax-2{
-    background-image: url("https://wallpapers.com/images/hd/attractive-lake-nature-pczghhhvhzi0yf7t.webp");
-    background-repeat: no-repeat;
-    height: 50vh;
-}
-
-section.module.parallax-3{
-    background-image: url("https://wallpapers.com/images/hd/nature-and-temple-view-ashrp4nim9snyr84.webp");
-    background-repeat: no-repeat;
-    height: 50vh;
-}
-
-section.module.parallax h1{
-    color: #fff;
-    text-align: center;
-    font-size: 10vw;
-    z-index: 50;
-    text-transform: uppercase;
-    word-wrap: break-word;
-}
-
 .contentaccess {
     display: none;
     flex-wrap: wrap;
@@ -140,42 +112,3 @@ canvas {
     width: 100%; /* Ocupar a largura total do contêiner */
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
-    .parallax-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* A imagem preencherá o espaço, cortando partes, se necessário */
-    }
-  
-    section.module.parallax-1,
-    section.module.parallax-2,
-    section.module.parallax-3 {
-      background-attachment: scroll;
-      height: 30vh;
-    }
-  }
-  
-  /* Safari Mobile */
-  @media only screen and (max-device-width: 980px) {
-    section.module.parallax-1,
-    section.module.parallax-2,
-    section.module.parallax-3 {
-      background-attachment: scroll;
-      height: 30vh;
-    }
-  }
-
-  @supports (-webkit-backdrop-filter: none) {
-    section.module.parallax-1,
-    section.module.parallax-2,
-    section.module.parallax-3 {
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center center;
-      max-width: 100%;
-      height: 50vh;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-    }
-  }
