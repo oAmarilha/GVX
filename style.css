@@ -1,9 +1,7 @@
 body{
     min-zoom: 100%;
     max-zoom: 100%;
-    color: #242424;
-    font-family: sans-serif;
-    word-wrap: break-word;
+    color: #fff;
     overflow-wrap: break-word;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -24,7 +22,6 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    color: #242424;
     font-family: sans-serif;
     word-wrap: break-word;
     /* Quebra as palavras para ajustá-las à largura disponível */
@@ -34,12 +31,6 @@ body, html {
 body::-webkit-scrollbar {
     display: none;
   }
-
-h1,h2,h3,h4,h5,h6{
-    font-weight: 900;
-    color: #000;
-    word-wrap: break-word;
-}
 
 .wrapper{
     min-height: 100vh;
@@ -65,33 +56,38 @@ main{
     padding: 0 20px;
 }
 
-section.module p{
-    margin: 0 0; /* Adicione uma margem lateral de 10 pixels para evitar que as palavras cheguem muito perto das bordas */
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
-
 section.module:last-child{
     margin-bottom: 0;
 }
 
+h1,h2,h3,h4,h5,h6,p{
+  font-weight: 900;
+  color: #000;
+  word-wrap: break-word;
+  text-align: center;
+}
+
 section.module h2{
-    margin-bottom: 40px;
-    font-size: 30px;
-    word-wrap: break-word;
+  margin-bottom: 40px;
+  font-size: 30px;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 section.module.content{
- padding: 40px 0;
- background: #ece7d5;
+  background-color: #fff;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 section.module.content .container {
     display: flex;
+    background-color: #fff;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    text-align: center;
   }
 
 .contentaccess {
