@@ -65,7 +65,8 @@ main{
 
 section.module p{
     margin: 0 0; /* Adicione uma margem lateral de 10 pixels para evitar que as palavras cheguem muito perto das bordas */
-    margin-bottom: 40px;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 section.module:last-child{
@@ -181,37 +182,5 @@ canvas {
     display: block;
     margin: 0 auto;
     width: 100%; /* Ocupar a largura total do contêiner */
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  @media only screen and (max-width: 768px){
-    .parallax-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* A imagem preencherá o espaço, cortando partes, se necessário */
-      height: 100vh; /* Alterado de 50vh para 100vh */
-    }
-    
-    section.module.parallax-1 {
-        background-size: cover; /* Ajusta a imagem para cobrir todo o espaço do container */
-        background-position: center; /* Centraliza a imagem verticalmente */
-        height: 100vh; /* Alterado de 50vh para 100vh */
-      }
-    
-      section.module.parallax-2 {
-        background-size: cover; /* Ajusta a imagem para cobrir todo o espaço do container */
-        background-position: center; /* Centraliza a imagem verticalmente */
-        height: 100vh; /* Alterado de 50vh para 100vh */
-      }
-    
-      section.module.parallax-3 {
-        background-size: cover; /* Ajusta a imagem para cobrir todo o espaço do container */
-        background-position: center; /* Centraliza a imagem verticalmente */
-        height: 100vh; /* Alterado de 50vh para 100vh */
-      }
 }
   
