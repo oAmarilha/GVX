@@ -74,6 +74,8 @@ section.module.parallax-1{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center center;
+    max-width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -84,6 +86,8 @@ section.module.parallax-2{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center center;
+    max-width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -94,6 +98,8 @@ section.module.parallax-3{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center center;
+    max-width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
