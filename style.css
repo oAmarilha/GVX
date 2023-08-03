@@ -94,68 +94,22 @@ section.module.content .container {
     padding: 20px;
   }
 
-section.module.parallax{
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh !important;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-position: 50% 50%;
-}
-
-section.module.parallax::after{
-    content: "";
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 8;
-    background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40%, #000 100%);
-    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40%, #000 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40%, #000 100%);  
-}
 
 section.module.parallax-1{
     background-image: url("https://wallpapers.com/images/hd/nature-landscape-hd-usqznq19dscdjkf8.webp");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    max-width: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     height: 50vh;
 }
 
 section.module.parallax-2{
     background-image: url("https://wallpapers.com/images/hd/attractive-lake-nature-pczghhhvhzi0yf7t.webp");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    max-width: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     height: 50vh;
 }
 
 section.module.parallax-3{
     background-image: url("https://wallpapers.com/images/hd/nature-and-temple-view-ashrp4nim9snyr84.webp");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    max-width: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     height: 50vh;
 }
 
