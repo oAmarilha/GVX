@@ -193,21 +193,25 @@ img {
       width: 100%;
       height: 100%;
       object-fit: cover; /* A imagem preencherá o espaço, cortando partes, se necessário */
+      height: 100vh; /* Alterado de 50vh para 100vh */
     }
     
     section.module.parallax-1 {
         background-size: cover; /* Ajusta a imagem para cobrir todo o espaço do container */
         background-position: center; /* Centraliza a imagem verticalmente */
+        height: 100vh; /* Alterado de 50vh para 100vh */
       }
     
       section.module.parallax-2 {
         background-size: cover; /* Ajusta a imagem para cobrir todo o espaço do container */
         background-position: center; /* Centraliza a imagem verticalmente */
+        height: 100vh; /* Alterado de 50vh para 100vh */
       }
     
       section.module.parallax-3 {
         background-size: cover; /* Ajusta a imagem para cobrir todo o espaço do container */
         background-position: center; /* Centraliza a imagem verticalmente */
+        height: 100vh; /* Alterado de 50vh para 100vh */
       }
 }
   
