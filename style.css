@@ -119,7 +119,7 @@ section.module.parallax::after{
 }
 
 section.module.parallax-1{
-    background-image: url("https://static.vecteezy.com/system/resources/previews/002/885/330/original/stock-market-investment-trading-financial-coin-and-graph-chart-or-forex-for-analyze-profit-finance-business-trend-data-background-free-photo.jpg");
+    background-image: url("https://wallpapers.com/images/hd/nature-landscape-hd-usqznq19dscdjkf8.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -132,7 +132,7 @@ section.module.parallax-1{
 }
 
 section.module.parallax-2{
-    background-image: url("https://images.squarespace-cdn.com/content/v1/609701bc21f2ee5734517421/1655502494010-V4JWTZI9HB556WCJJO8A/100+Dollar+Bill+Money+Seamless+Cover+WM+2.jpg?format=1500w");
+    background-image: url("https://wallpapers.com/images/hd/attractive-lake-nature-pczghhhvhzi0yf7t.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -145,7 +145,7 @@ section.module.parallax-2{
 }
 
 section.module.parallax-3{
-    background-image: url("https://wallpapers.com/images/featured/dubai-background-zs55bwi5t8gjms6q.jpg");
+    background-image: url("https://wallpapers.com/images/hd/nature-and-temple-view-ashrp4nim9snyr84.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -184,3 +184,22 @@ canvas {
     width: 100%; /* Ocupar a largura total do contêiner */
 }
   
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    section.module.parallax-1,
+    section.module.parallax-2,
+    section.module.parallax-3 {
+      height: 100vh;
+    }
+  }
+
+section.module.parallax img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+section.module.parallax-1,
+section.module.parallax-2,
+section.module.parallax-3 {
+  background-color: transparent; /* Remova o background-color para que o fundo seja transparente */
+}
