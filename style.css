@@ -1,11 +1,31 @@
 body{
     margin: 0;
     padding: 0;
+    height:  100%;
+    min-zoom: 100%;
+    max-zoom: 100%;
     color: #242424;
     font-family: sans-serif;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+    -ms-overflow-style: none;
 }
+
+html{
+    margin: 0;
+    padding: 0;
+    height:  100%;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 h1,h2,h3,h4,h5,h6{
     font-weight: 900;
@@ -13,12 +33,17 @@ h1,h2,h3,h4,h5,h6{
     word-wrap: break-word;
 }
 
-
-
 .wrapper{
+    min-height: 100vh;
+    min-width: 100%;
     width: 100%;
-    margin: 0 auto;
+    overflow: auto;
+    background-color: #f2f2f2;
 }
+
+.wrapper::-webkit-scrollbar {
+    display: none;
+  }
 
 main{
     display: block;
@@ -27,7 +52,7 @@ main{
 
 .container{
     width: 100%;
-    max-width: 760px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -50,6 +75,14 @@ section.module.content{
  padding: 40px 0;
  background: #ece7d5;
 }
+
+section.module.content .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
 
 section.module.parallax{
     display: flex;
@@ -117,3 +150,26 @@ section.module.parallax h1{
     text-transform: uppercase;
     word-wrap: break-word;
 }
+
+.contentaccess {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    }
+    
+    .contentaccess canvas{
+        max-width: 100%;
+    }
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    width: 100%; /* Ocupar a largura total do contêiner */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+  }

@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GVX Investments</title>
-    <style>
-    .contentaccess {
-        display: none;
-        }
-    </style>
     <link rel="stylesheet" href="style.css"
 </head>
 <body>
@@ -21,8 +16,9 @@
 
             <section class="module content">
                 <div class="container">
-                    <h2>Login</h2>
+                    
                     <div id="login">
+                      <h2>Login</h2>
                         <input type="text" id="username" placeholder="Nome de usuário">
                         <input type="password" id="password" placeholder="Senha" onkeypress="checkEnter(event)">
                         <button onclick="login()">Entrar</button>
@@ -140,106 +136,132 @@
       }
     }
 
-    function drawChart(chartData, chartColor) {
-      const ctx = document.getElementById("userChart").getContext("2d");
-      if (userChart) {
-        userChart.destroy();
-      }
-      userChart = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
-          datasets: [
-            {
-              label: "Dados do usuário",
-              data: chartData,
-              borderColor: chartColor,
-              backgroundColor: chartColor,
-              fill: true,
-              borderWidth: 1,
-            },
-          ],
+
+  function drawChart(chartData, chartColor) {
+    const ctx = document.getElementById("userChart").getContext("2d");
+    if (userChart) {
+      userChart.destroy();
+    }
+    userChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
+        datasets: [
+          {
+            label: "Dados do usuário",
+            data: chartData,
+            borderColor: chartColor,
+            backgroundColor: chartColor,
+            fill: true,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
+      },
+    });
+  }
+
+  function drawScatterChart(investmentData, returnData) {
+    const ctx = document.getElementById("scatterChart").getContext("2d");
+    if (scatterChart) {
+      scatterChart.destroy();
+    }
+    scatterChart = new Chart(ctx, {
+      type: "scatter",
+      data: {
+        datasets: [
+          {
+            label: "Retorno vs. Investimento",
+            data: investmentData.map((value, index) => ({ x: value, y: returnData[index] })),
+            borderColor: "rgba(75, 192, 192, 0.5)",
+            backgroundColor: "rgba(75, 192, 192, 0.5)",
+            pointRadius: 5,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          x: {
+            type: "linear",
+            position: "bottom",
+          },
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+  function calculateInvestmentReturn(investmentReturnData) {
+    const initialValue = 10000;
+    return investmentReturnData.map((value) => value - initialValue);
+  }
+
+  function drawInvestmentComparisonChart(investmentComparisonData) {
+    const ctx = document.getElementById("comparisonChart").getContext("2d");
+    const labels = ["Março", "Abril", "Maio", "Junho", "Julho", "Agosto"];
+
+    if (comparisonChart) {
+      comparisonChart.destroy();
+    }
+    comparisonChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Comparação com 10000",
+            data: investmentComparisonData,
+            backgroundColor: "rgba(54, 162, 235, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1000,
             },
           },
         },
-      });
-    }
+      },
+    });
+  }
 
-    function drawScatterChart(investmentData, returnData) {
-      const ctx = document.getElementById("scatterChart").getContext("2d");
-      if (scatterChart) {
-        scatterChart.destroy();
-      }
-      scatterChart = new Chart(ctx, {
-        type: "scatter",
-        data: {
-          datasets: [
-            {
-              label: "Retorno vs. Investimento",
-              data: investmentData.map((value, index) => ({ x: value, y: returnData[index] })),
-              borderColor: "rgba(75, 192, 192, 0.5)",
-              backgroundColor: "rgba(75, 192, 192, 0.5)",
-              pointRadius: 5,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            x: {
-              type: "linear",
-              position: "bottom",
-            },
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
+  function resizeCharts() {
+    if (userChart) {
+      const userChartCanvas = document.getElementById("userChart");
+      userChartCanvas.style.width = userChartCanvas.parentNode.offsetWidth + "px";
+      userChart.resize();
     }
-
-    function calculateInvestmentReturn(investmentReturnData) {
-      const initialValue = 10000;
-      return investmentReturnData.map((value) => value - initialValue);
+    if (scatterChart) {
+      const scatterChartCanvas = document.getElementById("scatterChart");
+      scatterChartCanvas.style.width = scatterChartCanvas.parentNode.offsetWidth + "px";
+      scatterChart.resize();
     }
-
-    function drawInvestmentComparisonChart(investmentComparisonData) {
-      const ctx = document.getElementById("comparisonChart").getContext("2d");
-      const labels = ["Março", "Abril", "Maio", "Junho", "Julho", "Agosto"];
-
-      if (comparisonChart) {
-        comparisonChart.destroy();
-      }
-      comparisonChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: "Comparação com 10000",
-              data: investmentComparisonData,
-              backgroundColor: "rgba(54, 162, 235, 0.5)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                stepSize: 1000,
-              },
-            },
-          },
-        },
-      });
+    if (comparisonChart) {
+      const comparisonChartCanvas = document.getElementById("comparisonChart");
+      comparisonChartCanvas.style.width = comparisonChartCanvas.parentNode.offsetWidth + "px";
+      comparisonChart.resize();
     }
+  }
+
+  // Chamar resizeCharts quando a página for carregada
+  window.addEventListener('load', resizeCharts);
+
+  // Chamar resizeCharts quando a janela for redimensionada
+  window.addEventListener('resize', resizeCharts);
+    
 
     </script>
             
