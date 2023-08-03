@@ -7,7 +7,7 @@ const userData = [
       investmentData: [100, 200, 150, 300, 250],
       returnData: [200, 250, 180, 270, 320],
       // Add the investment return data for March to August 2023
-      investmentReturnData: [210, 240, 260, 320, 290, 310],
+      investmentReturnData: [500, 1000, 4000, 3020, 24590, 3310],
     },
     {
       username: "usuario2",
