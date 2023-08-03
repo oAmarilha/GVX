@@ -10,6 +10,7 @@ body{
 h1,h2,h3,h4,h5,h6{
     font-weight: 900;
     color: #000;
+    word-wrap: break-word;
 }
 
 .wrapper{
@@ -40,6 +41,7 @@ section.module:last-child{
 section.module h2{
     margin-bottom: 40px;
     font-size: 30px;
+    word-wrap: break-word;
 }
 
 section.module.content{
@@ -108,7 +110,8 @@ section.module.parallax-3{
 section.module.parallax h1{
     color: #fff;
     text-align: center;
-    font-size: 78px;
+    font-size: 10vw;
     z-index: 50;
     text-transform: uppercase;
+    word-wrap: break-word;
 }
