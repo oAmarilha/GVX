@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GVX Investments</title>
+    <style>
+    .contentaccess {
+        display: none;
+        }
+    </style>
     <link rel="stylesheet" href="style.css"
 </head>
 <body>
-
+    
     <div class="wrapper">
         <main>
             <section class="module parallax parallax-1">
@@ -16,13 +21,25 @@
 
             <section class="module content">
                 <div class="container">
-                    <h2>TEXTO1</h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, commodi vel vitae amet tempore ea provident aperiam. Optio at facilis dolorum omnis culpa veritatis! Impedit ratione aliquam tempore perferendis suscipit?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, commodi vel vitae amet tempore ea provident aperiam. Optio at facilis dolorum omnis culpa veritatis! Impedit ratione aliquam tempore perferendis suscipit?
-                    </p>
+                    <h2>Login</h2>
+                    <div id="login">
+                        <input type="text" id="username" placeholder="Nome de usuário">
+                        <input type="password" id="password" placeholder="Senha" onkeypress="checkEnter(event)">
+                        <button onclick="login()">Entrar</button>
+                        <p>
+                            Este é o seu local de login, digite seu usuário e senha no local esperado.
+                        </p>
+                      </div>
+                      <div class="contentaccess" id="contentaccess">
+                        <h2>Gráfico Personalizado</h2>
+                        <p id="userMessage"></p>
+                        <canvas id="userChart"></canvas>
+                        <h2>Gráfico de Retorno vs. Investimento</h2>
+                        <canvas id="scatterChart"></canvas>
+                        <h2 id="comparisonChartHeading" style="display: none;">Comparação do Investimento com 10000</h2>
+                        <canvas id="comparisonChart"></canvas>
+                        <button onclick="logout()">Sair</button>
+                      </div>
                 </div>
             </section>
             
@@ -45,7 +62,7 @@
             <section class="module parallax parallax-3">
                 <h1>lucro</h1>
             </section>
-            
+
             <section class="module content">
                 <div class="container">
                     <h2>TEXTO1</h2>
@@ -57,8 +74,175 @@
                     </p>
                 </div>
             </section>
-            
+    <script src="data.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>     
+    <script>
 
+    let currentUser = null;
+    let userChart = null;
+    let scatterChart = null;
+    let comparisonChart = null;
+
+        function checkEnter(event) {
+      if (event.keyCode === 13) {
+        login();
+      }
+    }
+    
+        function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const user = userData.find((u) => u.username === username && u.password === password);
+
+      if (user) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("contentaccess").style.display = "block";
+
+        currentUser = user;
+        document.getElementById("userMessage").innerText = `Olá, ${user.username}! Seu gráfico personalizado está abaixo:`;
+        drawChart(currentUser.chartData, currentUser.chartColor);
+        drawScatterChart(currentUser.investmentData, currentUser.returnData);
+
+        if (currentUser.username === "usuario1") {
+          document.getElementById("comparisonChartHeading").style.display = "block";
+          // Calculate investment return for the months from March to August 2023
+          const investmentComparisonData = calculateInvestmentReturn(currentUser.investmentReturnData);
+
+          // Draw the comparison chart
+          drawInvestmentComparisonChart(investmentComparisonData);
+        } else {
+          document.getElementById("comparisonChartHeading").style.display = "none";
+          // If it's usuario2 or any other user, hide the chart and display a message.
+          document.getElementById("comparisonChart").style.display = "none";
+        }
+      } else {
+        alert("Nome de usuário ou senha inválidos.");
+      }
+    }
+
+    function logout() {
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("login").style.display = "block";
+      document.getElementById("contentaccess").style.display = "none";
+      if (userChart) {
+        userChart.destroy();
+        userChart = null;
+      }
+      if (scatterChart) {
+        scatterChart.destroy();
+        scatterChart = null;
+      }
+      if (comparisonChart) {
+        comparisonChart.destroy();
+        comparisonChart = null;
+      }
+    }
+
+    function drawChart(chartData, chartColor) {
+      const ctx = document.getElementById("userChart").getContext("2d");
+      if (userChart) {
+        userChart.destroy();
+      }
+      userChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
+          datasets: [
+            {
+              label: "Dados do usuário",
+              data: chartData,
+              borderColor: chartColor,
+              backgroundColor: chartColor,
+              fill: true,
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+
+    function drawScatterChart(investmentData, returnData) {
+      const ctx = document.getElementById("scatterChart").getContext("2d");
+      if (scatterChart) {
+        scatterChart.destroy();
+      }
+      scatterChart = new Chart(ctx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "Retorno vs. Investimento",
+              data: investmentData.map((value, index) => ({ x: value, y: returnData[index] })),
+              borderColor: "rgba(75, 192, 192, 0.5)",
+              backgroundColor: "rgba(75, 192, 192, 0.5)",
+              pointRadius: 5,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              type: "linear",
+              position: "bottom",
+            },
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+
+    function calculateInvestmentReturn(investmentReturnData) {
+      const initialValue = 10000;
+      return investmentReturnData.map((value) => value - initialValue);
+    }
+
+    function drawInvestmentComparisonChart(investmentComparisonData) {
+      const ctx = document.getElementById("comparisonChart").getContext("2d");
+      const labels = ["Março", "Abril", "Maio", "Junho", "Julho", "Agosto"];
+
+      if (comparisonChart) {
+        comparisonChart.destroy();
+      }
+      comparisonChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: "Comparação com 10000",
+              data: investmentComparisonData,
+              backgroundColor: "rgba(54, 162, 235, 0.5)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 1000,
+              },
+            },
+          },
+        },
+      });
+    }
+
+    </script>
+            
         </main>
         
 </body>
