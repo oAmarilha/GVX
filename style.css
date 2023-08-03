@@ -184,12 +184,3 @@ canvas {
     width: 100%; /* Ocupar a largura total do contêiner */
 }
   
-@media only screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    section.module.parallax-1,
-    section.module.parallax-2,
-    section.module.parallax-3 {
-      width: 50%;
-      height: 50%;
-    }
-  }
-
