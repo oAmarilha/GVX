@@ -25,7 +25,8 @@ body, html {
     height: 100%;
     color: #242424;
     font-family: sans-serif;
-    word-wrap: break-word; /* Quebra as palavras para ajustá-las à largura disponível */
+    word-wrap: break-word;
+    /* Quebra as palavras para ajustá-las à largura disponível */
     word-break: break-word;
   }
 
@@ -113,9 +114,9 @@ section.module.parallax::after{
     width: 100%;
     position: absolute;
     z-index: 8;
-    background: -moz-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100%);
-    background: -webkit-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100%);
+    background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40%, #000 100%);
+    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40%, #000 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40%, #000 100%);  
 }
 
 section.module.parallax-1{
@@ -125,7 +126,7 @@ section.module.parallax-1{
     background-size: cover;
     background-position: center center;
     max-width: 100%;
-    
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 50vh;
@@ -138,7 +139,7 @@ section.module.parallax-2{
     background-size: cover;
     background-position: center center;
     max-width: 100%;
-    
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 50vh;
@@ -151,7 +152,7 @@ section.module.parallax-3{
     background-size: cover;
     background-position: center center;
     max-width: 100%;
-    
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 50vh;
@@ -183,4 +184,43 @@ canvas {
     margin: 0 auto;
     width: 100%; /* Ocupar a largura total do contêiner */
 }
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    .parallax-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* A imagem preencherá o espaço, cortando partes, se necessário */
+    }
   
+    section.module.parallax-1,
+    section.module.parallax-2,
+    section.module.parallax-3 {
+      background-attachment: scroll;
+      height: 30vh;
+    }
+  }
+  
+  /* Safari Mobile */
+  @media only screen and (max-device-width: 980px) {
+    section.module.parallax-1,
+    section.module.parallax-2,
+    section.module.parallax-3 {
+      background-attachment: scroll;
+      height: 30vh;
+    }
+  }
+
+  @supports (-webkit-backdrop-filter: none) {
+    section.module.parallax-1,
+    section.module.parallax-2,
+    section.module.parallax-3 {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center center;
+      max-width: 100%;
+      height: 50vh;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+    }
+  }
