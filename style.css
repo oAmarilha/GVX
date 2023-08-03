@@ -125,7 +125,7 @@ section.module.parallax-1{
     background-size: cover;
     background-position: center center;
     max-width: 100%;
-    -webkit-background-size: cover;
+    
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 50vh;
@@ -138,7 +138,7 @@ section.module.parallax-2{
     background-size: cover;
     background-position: center center;
     max-width: 100%;
-    -webkit-background-size: cover;
+    
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 50vh;
@@ -151,7 +151,7 @@ section.module.parallax-3{
     background-size: cover;
     background-position: center center;
     max-width: 100%;
-    -webkit-background-size: cover;
+    
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 50vh;
