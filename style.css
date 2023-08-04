@@ -145,3 +145,84 @@ body *{
         width: 90%;
     }
 }
+
+.btn-voltar {
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #f0ffffde;
+    cursor: pointer;
+    box-shadow: 0px 6px 15px -4px #00000056;
+}
+
+/* Estilos para as seções do usuário após o login */
+.user-section {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #201b2c;
+    color: #f0ffffde;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.user-section h2 {
+    font-size: 3vw;
+    color: #77ffc0;
+    margin-bottom: 20px;
+}
+
+.user-section p {
+    font-size: 1.5vw;
+    margin-bottom: 30px;
+}
+
+.user-section .btn-voltar {
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #f0ffffde;
+    cursor: pointer;
+    box-shadow: 0px 6px 15px -4px #00000056;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

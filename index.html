@@ -4,29 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>GVX Investiments</title>
+    <title>GVX Investments</title>
+    <link rel="icon" href="icon.jpeg" type="image/x-icon">
 </head>
 <body>
     <div class="main-login">
         <div class="left-login">
             <h1>Faça Login<br>E entre para o nosso time</h1>
-            <img src="money.svg" class="left-login-image" ="Money animation">
+            <img src="money.svg" class="left-login-image" alt="Money animation">
         </div>
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
                 <div class="textfield">
                     <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" placeholder="Usuário">
+                    <input type="text" name="usuario" placeholder="Usuário" id="username">
                 </div>
                 <div class="textfield">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="password" name="senha" placeholder="Senha" id="password" onkeydown="handleKeyDown(event)">
                 </div>
-                <button class="btn-login">Login</button>
+                <button class="btn-login" onclick="login()">Login</button>
             </div>
         </div>
+        <div class="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+        </div>
     </div>
-    
+
+    <section id="user1-section" style="display: none;">
+        <!-- Conteúdo específico do usuário 1 -->
+        <h2>Bem-vindo, Guilherme Evangelista!</h2>
+        <p>Conteúdo exclusivo para o Guilherme Evangelista.</p>
+        <button class="btn-voltar" onclick="voltarLogin()">Voltar para o Login</button>
+    </section>
+
+    <section id="user2-section" style="display: none;">
+        <!-- Conteúdo específico do usuário 2 -->
+        <h2>Bem-vindo, Salvador Neto!</h2>
+        <p>Conteúdo exclusivo para o Salvador Neto.</p>
+        <button class="btn-voltar" onclick="voltarLogin()">Voltar para o Login</button>
+    </section>
+
+    <section id="user3-section" style="display: none;">
+        <!-- Conteúdo específico do usuário 1 -->
+        <h2>Bem-vindo, Isac Rolim!</h2>
+        <p>Conteúdo exclusivo para o Isac Rolim.</p>
+        <button class="btn-voltar" onclick="voltarLogin()">Voltar para o Login</button>
+    </section>
+
+    <section id="user4-section" style="display: none;">
+        <!-- Conteúdo específico do usuário 2 -->
+        <h2>Bem-vindo, Ítalo Freitas!</h2>
+        <p>Conteúdo exclusivo para o Ítalo Freitas.</p>
+        <button class="btn-voltar" onclick="voltarLogin()">Voltar para o Login</button>
+    </section>
+
+    <section id="user5-section" style="display: none;">
+        <!-- Conteúdo específico do usuário 1 -->
+        <h2>Bem-vindo, Wesley!</h2>
+        <p>Conteúdo exclusivo para o Wesley.</p>
+        <button class="btn-voltar" onclick="voltarLogin()">Voltar para o Login</button>
+    </section>
+
+    <section id="user6-section" style="display: none;">
+        <!-- Conteúdo específico do usuário 2 -->
+        <h2>Bem-vindo, Gustavo Lima!</h2>
+        <p>Conteúdo exclusivo para o Gustavo Lima.</p>
+        <button class="btn-voltar" onclick="voltarLogin()">Voltar para o Login</button>
+    </section>
+
+    <script src="login.js"></script>
 </body>
 </html>
