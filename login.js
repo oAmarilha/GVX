@@ -32,13 +32,7 @@ function login() {
         console.log('success', response)
         var username = response.user.email.split('@')[0];
         console.log(username)
-        if (username != 'admin'){
-            showSection(username);
-        }
-        else{
-            window.location.href="pages/admin.html";
-        }
-        
+        showSection(username);
         hideLoading();
         
     }).catch(error => {
