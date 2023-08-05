@@ -30,9 +30,15 @@ function login() {
     console.log('antes')
     firebase.auth().signInWithEmailAndPassword(document.getElementById('username').value, document.getElementById('password').value).then(response =>{
         console.log('success', response)
-        let username = response.user.email.split('@')[0];
+        var username = response.user.email.split('@')[0];
         console.log(username)
-        showSection(username);
+        if (username != 'admin'){
+            showSection(username);
+        }
+        else{
+            window.location.href="pages/admin.html";
+        }
+        
         hideLoading();
         
     }).catch(error => {
@@ -41,50 +47,18 @@ function login() {
         hideLoading();
     });
     console.log('depois')
-
-
-    // Exibir animação de loading
-    
-
-    // Simulando o processo de login (verificação do usuário e senha)
-    /*
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    setTimeout(function() {
-        // Verifique se o usuário e senha correspondem a algum usuário registrado
-        if (username === 'guievangelista' && password === '232427') {
-            showSection('user1-section');
-        } else if (username === 'salvaneto' && password === '343739') {
-            showSection('user2-section');
-        } else if (username === 'isacrolim' && password === '676863') {
-            showSection('user3-section');
-        } else if (username === 'italofreitas' && password === '787673') {
-            showSection('user4-section');
-        } else if (username === 'wesley2023' && password === '474449') {
-            showSection('user5-section');
-        } else if (username === 'gustavolima' && password === '909592') {
-            showSection('user6-section');
-        } else {
-            alert('Usuário ou senha inválidos!');
-        }
-
-        // Ocultar animação de loading após o login
-        loadingAnimation.style.display = 'none';
-    }, 1000); // Apenas simulação, você pode remover esse setTimeout e adicionar sua lógica de login real.
-    */
 }
 
 function showSection(sectionId) {
     // Oculte o formulário de login
-    document.querySelector('.main-login').style.display = 'none';
-    // Exibe a seção específica do usuário e aplica a classe user-section
-    const userSection = document.getElementById(sectionId);
-    userSection.style.display = 'flex'; // Muda para 'flex' para respeitar as propriedades de exibição definidas na classe CSS
-    userSection.classList.add('user-section');
+    var page = sectionId + ".html";
+    window.location.href="pages/" + page;
 }
 
 function voltarLogin() {
+    document.getElementById("btn-voltar").removeEventListener("click", voltarLogin); // Removendo o ouvinte atual, se existir
+    window.location.href = "../index.html";
+      
     const sections = document.querySelectorAll('.class-id');
 
     // Percorra a lista de elementos e oculte-os
@@ -94,4 +68,3 @@ function voltarLogin() {
     document.querySelector('.main-login').style.display = 'flex'; // Exibe o formulário de login
     document.getElementById('password').value = ''
 }
-
