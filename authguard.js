@@ -17,15 +17,8 @@ function checkPermission(){
             }
         } 
         else{
-            if (window.location.href.includes('index.html')) {
-                // This code will only run if the current page is NOT index.html
-                window.location.href = "pages/login.html"; // Replace 'yourFunction()' with the function you want to execute
-            }
-            else if (window.location.href.includes('pages/login.html')){
-
-            }
-            else{
-                window.location.href = "login.html";
+            if (!window.location.href.includes('login.html')){
+                window.location.href = "pages/login.html";
             }
             return;
         }
