@@ -7,7 +7,7 @@ function checkAuthState() {
         if (user) {
             // User is signed in, redirect to the appropriate page
             var username = user.email.split('@')[0];
-            showSection(username);
+            showSection("pages/"+ username);
         } else {
             // User is not signed in, show the login form
             if (!window.location.href.includes('login.html')) {
