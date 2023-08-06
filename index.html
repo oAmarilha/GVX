@@ -1,40 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>GVX Investments</title>
-    <link rel="icon" href="icon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <div class="main-login">
-        <div class="left-login">
-            <h1>Acesso Investimentos<br>Equipe GVX CAPITAL GROUP</h1>
-            <img src="money.svg" class="left-login-image" alt="Money animation">
-        </div>
-        <div class="right-login">
-            <div class="card-login">
-                <h1>LOGIN</h1>
-                <div class="textfield">
-                    <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" placeholder="Usuário" id="username" onkeydown="handleKeyDown(event)">
-                </div>
-                <div class="textfield">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" placeholder="Senha" id="password" onkeydown="handleKeyDown(event)">
-                </div>
-                <button class="btn-login" onclick="login()">Login</button>
-            </div>
-        </div>
-        <div class="loading" style="display: none;">
-            <div class="loading-spinner"></div>
-        </div>
-    </div>
     <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="firebase.js"></script>
+    <script src="checkauth.js"></script>
     <script src="login.js"></script>
-
-
 </body>
 </html>
