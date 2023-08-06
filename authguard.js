@@ -17,12 +17,9 @@ function checkPermission(){
             }
         } 
         else{
-            if (window.location.href.includes('index.html')){
-                window.location.href = "./pages/login.html";
-            }
-            else if (!window.location.href.includes('login.html')){
+            if (!window.location.href.includes('login.html')){
                 window.location.href = "login.html";
-            } 
+            }
             return;
         }
     });
