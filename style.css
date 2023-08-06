@@ -113,13 +113,8 @@ body *{
     box-shadow: 0px 10px 40px -12px #00ff8052;
 }
 
-@media only screen and (max-width: 950px){
-    .card-login{
-        width: 85%;
-    }
-}
 
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 950px){
     .main-login{
         flex-direction: column;
     }
@@ -143,7 +138,8 @@ body *{
     }
 
     .card-login{
-        width: 90%;
+        width: 85%;
+        height: auto;
     }
 }
 
