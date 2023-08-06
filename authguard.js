@@ -18,7 +18,7 @@ function checkPermission(){
         } 
         else{
             if (!window.location.href.includes('login.html')){
-                window.location.href = "pages/login.html";
+                window.location.href = "./pages/login.html";
             }
             return;
         }
