@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <title>Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="/pages/style.css">
 
 </head>
 <body>
 
   
-  
 <div class="container">
-  <div class="app-left">
+  <!-- <div class="app-left">
     <button class="close-menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -36,24 +35,24 @@
         </a>
       </li>
     </ul>
-  </div>
+  </div> -->
   <div class="app-main">
     <div class="main-header-line">
-      <h1>Dashboard Geral</h1>
-      <div class="action-buttons">
+      <h1>Username</h1>
+      <!-- <div class="action-buttons">
         <button class="open-right-area">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       </button>
       <button class="menu-button">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      </div>
+      </div> -->
     </div>
     <div class="chart-row three">
       <div class="chart-container-wrapper">
         <div class="chart-container">
           <div class="chart-info-wrapper">
-            <h2 id="applicationsLabel">Applications</h2>
+            <h2 id="applicationsLabel">Valor atual</h2>
             <span id="applicationsNumber"></span>
         </div>
           <div class="chart-svg">
@@ -72,9 +71,12 @@
       <div class="chart-container-wrapper">
         <div class="chart-container">
           <div class="chart-info-wrapper">
-            <h2 id="shortlistedLabel">Shortlisted</h2>
-            <span id="shortlistedNumber"></span>
-        </div>
+            <div class="chart-info-row">
+              <div class="status-button"></div>
+              <h2 id="shortlistedLabel">Status</h2>
+            </div>
+              <span id="shortlistedNumber"></span>
+          </div>
           <div class="chart-svg">
             <svg viewBox="0 0 36 36" class="circular-chart blue">
       <path class="circle-bg" d="M18 2.0845
@@ -91,7 +93,7 @@
       <div class="chart-container-wrapper">
         <div class="chart-container">
           <div class="chart-info-wrapper">
-            <h2 id="peopleLabel">People</h2>
+            <h2 id="peopleLabel">Lucro realizado</h2>
             <span id="peopleNumber"></span>
         </div>
            <div class="chart-svg">
@@ -136,8 +138,6 @@
     </div>
   </div>
 </div>
-
-<!-- partial -->
 
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
