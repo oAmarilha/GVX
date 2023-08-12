@@ -7,7 +7,7 @@ function updateNumber(elementId, number) {
 }
 
 // Exemplo de uso para atualizar os números (substitua os números de exemplo pelos números desejados)
-updateNumber('applicationsNumber', 3000); // Atualiza "Applications" para 3000
+updateNumber('applicationsNumber', 400); // Atualiza "Applications" para 3000
 updateNumber('shortlistedNumber', 6000); // Atualiza "Shortlisted" para 6000
 updateNumber('peopleNumber', 4500); // Atualiza "People" para 4500
 

@@ -701,7 +701,7 @@ button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 900px) {
   .app-right {
     flex-basis: 240px;
     width: 240px;
@@ -711,7 +711,7 @@ button {
     flex-basis: 200px;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 900px) {
   .app-right {
     position: absolute;
     opacity: 0;
@@ -741,7 +741,7 @@ button {
     color: var(--main-color);
   }
 }
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 900px) {
   .chart-row.two {
     flex-direction: column;
   }
@@ -762,7 +762,7 @@ button {
     margin-top: 0;
   }
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 900px) {
   .menu-button {
     display: flex;
   }
