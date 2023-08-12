@@ -7,20 +7,13 @@
     <title>Admin Page</title>
 </head>
 <body>
-    <section  class="admin">
-        <!-- Conteúdo específico do usuário 1 -->
-        <h1>Página de admin</h1>
-        <p>Conteúdo de administrador.</p>
-        <button class="btn-voltar" id="btn-voltar" onclick="logout()">Voltar para o Login</button>
-    </section>
-    <div class="loading" style="display: none;">
-        <div class="loading-spinner"></div>
-    </div>
+    <script> 
+        window.location.href = 'dash.html'
+    </script>
     <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
     <script src="../firebase.js"></script>
     <script src="../authguard.js"></script>
-    <script src="../login.js"></script>
     <script src="../logout.js"></script>
 </body>
 </html>
