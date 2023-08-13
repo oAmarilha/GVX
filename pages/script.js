@@ -21,14 +21,14 @@ gradient.addColorStop(1, 'rgba(0, 199, 214, 0)');
 
 
 var data  = {
-    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October', 'November','December' ],
+    labels: [ 'Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho', 'Julho','Agosto','Setembro','Outubro', 'Novembro','Deezembro' ],
     datasets: [{
 			label: 'Applications',
 			backgroundColor: gradient,
 			pointBackgroundColor: '#00c7d6',
 			borderWidth: 1,
 			borderColor: '#0e1a2f',
-			data: [60, 45, 80, 30, 35, 55,25,80,40,50,80,50]
+			data: [5000, 6000, 8000, 10000, 9500, 13000,14600,16400,13000,17000,18500,20500]
     }]
 };
 
@@ -100,4 +100,28 @@ document.querySelector('.close-menu').addEventListener('click', function () {
 });
 
 
+// status
 
+function updateStatus() {
+	const statusSelect = document.getElementById("statusSelect");
+	const statusDiv = document.getElementById("status");
+	const selectedStatus = statusSelect.value;
+
+	statusDiv.style.backgroundColor = getStatusColor(selectedStatus);
+  }
+
+  function getStatusColor(status) {
+	switch (status) {
+	  case "na-loja":
+		return "red";
+	  case "no-caminho":
+		return "yellow";
+	  case "entregue":
+		return "green";
+	  default:
+		return "gray";
+	}
+  }
+
+  // Inicializar o status ao carregar a página
+  updateStatus();

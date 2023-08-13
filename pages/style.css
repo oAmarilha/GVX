@@ -33,6 +33,7 @@ body {
   justify-content: center;
   font-family: "Poppins", sans-serif;
   background-color: #050e2d;
+  box-sizing:  border-box;
 }
 
 .container {
@@ -264,7 +265,7 @@ button {
 }
 .chart-row.two .big {
   flex: 1;
-  max-width: 77.7%;
+  max-width: 100%;
 }
 .chart-row.two .big .chart-container {
   flex-direction: column;
@@ -285,12 +286,12 @@ button {
 }
 
 .chart-container {
-  width: 100%;
-  border-radius: 10px;
-  background-color: var(--app-bg-dark);
-  padding: 16px;
-  display: flex;
-  color: white;
+   width: 100%;
+    border-radius: 10px;
+    background-color: var(--app-bg-dark);
+    padding: 16px;
+    display: flex;
+    align-items: center;
   
 }
 
@@ -543,35 +544,6 @@ button {
   font-weight: 600;
 }
 
-.app-right-section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  margin-top: 16px;
-}
-.app-right-section-header h2 {
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--secondary-color);
-}
-.app-right-section-header span {
-  display: inline-block;
-  color: var(--secondary-color);
-  position: relative;
-}
-.app-right-section-header span.notification-active:before {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--app-logo);
-  top: -1px;
-  right: -1px;
-  box-shadow: 0 0 0 2px var(--app-bg-dark);
-}
-
 .message-line {
   display: flex;
   align-items: center;
@@ -701,47 +673,22 @@ button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 900px) {
-  .app-right {
-    flex-basis: 240px;
-    width: 240px;
+@media only screen and (max-width: 950px){
+  .chart-row {
+      flex-direction: column;
+      display: flex;
+      width: 100%;
   }
 
+}
+
+@media (max-width: 1000px) {
   .app-left {
     flex-basis: 200px;
   }
 }
-@media screen and (max-width: 900px) {
-  .app-right {
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    z-index: 2;
-    height: 100%;
-    width: 320px;
-    right: -100%;
-    box-shadow: 0 0 10px 5px rgba(1, 8, 31, 0.4);
-  }
-  .app-right .close-right {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    color: var(--main-color);
-    cursor: pointer;
-  }
 
-  .app-main .open-right-area {
-    display: flex;
-    color: var(--main-color);
-  }
-}
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .chart-row.two {
     flex-direction: column;
   }
@@ -761,8 +708,19 @@ button {
   .chart-row.two .small .chart-container.applicants {
     margin-top: 0;
   }
+
+  .chart-container-header h2{
+    font-size: 30px;
+    padding: 30px;
+  }
+
+  .chart-container-header span{
+    font-size: 20px;
+    padding: 30px;
+  }
 }
-@media screen and (max-width: 900px) {
+
+@media screen and (max-width: 1000px) {
   .menu-button {
     display: flex;
   }
@@ -773,7 +731,7 @@ button {
     top: 0;
     z-index: 2;
     height: 100%;
-    width: 320px;
+    width: 820px;
     right: -100%;
     box-shadow: 0 0 10px 5px rgba(1, 8, 31, 0.4);
   }
@@ -782,7 +740,7 @@ button {
     display: flex;
   }
 }
-@media screen and (max-width: 650px) {
+@media only screen and (max-width: 1000px) {
   .chart-row.three {
     flex-direction: column;
   }
@@ -792,11 +750,33 @@ button {
   }
 
   .chart-svg {
-    min-height: 60px;
-    min-width: 40px;
+    min-height: 180px;
+    min-width: 180px;
   }
+
+  .chart-container{
+    align-items: center;  
+  }
+
+  .chart-info-wrapper h2{
+    font-size: 28px;
+  }
+
+  .chart-info-wrapper span{
+    font-size: 50px;
+    line-height: 106px;
+  }
+
+  .chart-info-wrapper {
+    flex-basis: 300px;
+  }
+
+  .chart-row.three .chart-container-wrapper .chart-container{
+    height: 300px;
+  }
+  
 }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 1000px) {
   .chart-row.two .small {
     flex-direction: column;
   }
@@ -809,7 +789,15 @@ button {
   }
 
   .main-header-line h1 {
-    font-size: 14px;
+    font-size: 75px;
+    line-height: 150px;
+  }
+
+  .btn-voltar{
+    width: auto;
+    height: 4vh;
+    font-size: 27px;
+    margin-left: 55%;
   }
 }
 
@@ -828,3 +816,25 @@ button {
   box-shadow: 0px 6px 15px -4px #00000056;
 }
 
+.status-button{
+  width: 17px;
+  background-color: #ff0000;
+  height: 17px;
+  border-radius: 100%;
+  box-shadow: rgba(124, 124, 124, 0.022) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.chart-info-row{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+
+}
+
+.chart-info-row h2{
+  margin-left: 6%;  
+}
+
+#chart{
+  width: 100%;
+}
