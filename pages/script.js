@@ -100,4 +100,28 @@ document.querySelector('.close-menu').addEventListener('click', function () {
 });
 
 
+// status
 
+function updateStatus() {
+	const statusSelect = document.getElementById("statusSelect");
+	const statusDiv = document.getElementById("status");
+	const selectedStatus = statusSelect.value;
+
+	statusDiv.style.backgroundColor = getStatusColor(selectedStatus);
+  }
+
+  function getStatusColor(status) {
+	switch (status) {
+	  case "na-loja":
+		return "red";
+	  case "no-caminho":
+		return "yellow";
+	  case "entregue":
+		return "green";
+	  default:
+		return "gray";
+	}
+  }
+
+  // Inicializar o status ao carregar a página
+  updateStatus();
