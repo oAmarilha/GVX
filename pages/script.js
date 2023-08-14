@@ -2,14 +2,14 @@
 function updateNumber(elementId, number) {
     const element = document.getElementById(elementId);
     if (element) {
-        element.textContent = "+" + number;
+        element.textContent = number;
     }
 }
 
 // Exemplo de uso para atualizar os números (substitua os números de exemplo pelos números desejados)
 updateNumber('applicationsNumber', "R$"+2.8 + "M"); // Atualiza "Applications" para 3000
 updateNumber('shortlistedNumber', "COMPLETO"); // Atualiza "Shortlisted" para 6000
-updateNumber('peopleNumber', "R$"+ 1.5 + "M"); // Atualiza "People" para 4500
+updateNumber('peopleNumber', "+R$"+ 1.5 + "M"); // Atualiza "People" para 4500
 
 
 var chart    = document.getElementById('chart').getContext('2d'),
