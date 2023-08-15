@@ -72,10 +72,10 @@
         <div class="chart-container">
           <div class="chart-info-wrapper">
             <div class="chart-info-row">
-              <div class="status-button"></div>
+              <div id="status"></div>
               <h2 id="shortlistedLabel">Status</h2>
             </div>
-              <span id="shortlistedNumber"></span>
+           <span id="statusSelect" onchange="updateStatus()"></span>
           </div>
           <div class="chart-svg">
             <svg viewBox="0 0 36 36" class="circular-chart blue">
