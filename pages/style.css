@@ -283,7 +283,6 @@ button {
 .line-chart {
   width: 100%;
   margin-top: 24px;
-  height: 400px;
 }
 
 .chart-container {
@@ -839,7 +838,7 @@ button {
   width: 100%;
 }
 
-.chart-container-wrapper.big {
-  height: 600px;
+.chart-container-wrapper big{
+  height: 300px;
 }
 
