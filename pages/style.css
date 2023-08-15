@@ -34,6 +34,8 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #050e2d;
   box-sizing:  border-box;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .container {
