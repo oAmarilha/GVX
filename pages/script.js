@@ -83,21 +83,21 @@ var chartInstance = new Chart(chart, {
 		options: options
 });
 
-document.querySelector('.open-right-area').addEventListener('click', function () {
-    document.querySelector('.app-right').classList.add('show');
-});
+// document.querySelector('.open-right-area').addEventListener('click', function () {
+//     document.querySelector('.app-right').classList.add('show');
+// });
 
-document.querySelector('.close-right').addEventListener('click', function () {
-    document.querySelector('.app-right').classList.remove('show');
-});
+// document.querySelector('.close-right').addEventListener('click', function () {
+//     document.querySelector('.app-right').classList.remove('show');
+// });
 
-document.querySelector('.menu-button').addEventListener('click', function () {
-    document.querySelector('.app-left').classList.add('show');
-});
+// document.querySelector('.menu-button').addEventListener('click', function () {
+//     document.querySelector('.app-left').classList.add('show');
+// });
 
-document.querySelector('.close-menu').addEventListener('click', function () {
-    document.querySelector('.app-left').classList.remove('show');
-});
+// document.querySelector('.close-menu').addEventListener('click', function () {
+//     document.querySelector('.app-left').classList.remove('show');
+// });
 
 
 // status
@@ -105,23 +105,35 @@ document.querySelector('.close-menu').addEventListener('click', function () {
 function updateStatus() {
 	const statusSelect = document.getElementById("statusSelect");
 	const statusDiv = document.getElementById("status");
-	const selectedStatus = statusSelect.value;
+	const selectedStatus = "Em processamento";
 
 	statusDiv.style.backgroundColor = getStatusColor(selectedStatus);
   }
 
   function getStatusColor(status) {
-	switch (status) {
-	  case "na-loja":
+
+	if (selectedStatus == "Em processamento") {
 		return "red";
-	  case "no-caminho":
+	} else if (selectedStatus == "a caminho") {
 		return "yellow";
-	  case "entregue":
+	} else if (selectedStatus == "entregue") {
 		return "green";
-	  default:
+	} else {
 		return "gray";
 	}
+	// switch (status) {
+	//   case "Em processamento":
+	// 	return "red";
+	//   case "a caminho":
+	// 	return "yellow";
+	//   case "entregue":
+	// 	return "green";
+	//   default:
+	// 	return "gray";
+	// }
   }
 
   // Inicializar o status ao carregar a página
   updateStatus();
+
+  
