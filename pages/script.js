@@ -102,38 +102,39 @@ var chartInstance = new Chart(chart, {
 
 // status
 
-function updateStatus() {
-	const statusSelect = document.getElementById("statusSelect");
-	const statusDiv = document.getElementById("status");
-	const selectedStatus = "Em processamento";
-
-	statusDiv.style.backgroundColor = getStatusColor(selectedStatus);
-  }
-
-  function getStatusColor(status) {
-
-	if (selectedStatus == "Em processamento") {
-		return "red";
-	} else if (selectedStatus == "a caminho") {
-		return "yellow";
-	} else if (selectedStatus == "entregue") {
-		return "green";
-	} else {
-		return "gray";
+function setStatusColor(id) {
+	const statusElement = document.getElementById("status");
+	const resultadoElement = document.getElementById("resultado-status");
+	switch (id) {
+	  case "entregue":
+		statusElement.style.background = "green";
+		resultadoElement.textContent = "Entregue";
+		resultadoElement.style.color = "white";    
+		resultadoElement.style.marginLeft = "20px"; 
+		break;
+	  case "em_analise":
+		statusElement.style.background = "yellow";
+		resultadoElement.textContent = "Em Análise";
+		resultadoElement.style.color = "white";
+		resultadoElement.style.marginLeft = "20px"; 
+		break;
+	  case "processamento":
+		statusElement.style.background = "red";
+		resultadoElement.textContent = "Processamento";
+		resultadoElement.style.color = "white";
+		resultadoElement.style.marginLeft = "20px"; 
+	
+		break;
+	  default:
+		statusElement.style.background = "gray";
+		resultadoElement.textContent = "Desconhecido";
+		resultadoElement.style.color = "white";
+		resultadoElement.style.marginLeft = "20px"; 
 	}
-	// switch (status) {
-	//   case "Em processamento":
-	// 	return "red";
-	//   case "a caminho":
-	// 	return "yellow";
-	//   case "entregue":
-	// 	return "green";
-	//   default:
-	// 	return "gray";
-	// }
   }
-
-  // Inicializar o status ao carregar a página
-  updateStatus();
+  
+  // Defina o ID do status desejado aqui
+  const statusId = "entregue"; // Pode ser "entregue", "em_analise" ou "processamento"
+  setStatusColor(statusId);
 
   
