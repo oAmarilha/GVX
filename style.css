@@ -125,12 +125,12 @@ body *{
 
     .left-login{
         width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     .right-login{
         width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     .left-login-image{
