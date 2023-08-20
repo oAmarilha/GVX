@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged((user) => {
           const currentStatus = doc.data().money.status;
           console.log(currentStatus)
           console.log(currentUser);
-          updateStatus(currentStatus)
+          setStatusColor(currentStatus)
           // Atualizar o conteúdo do <span> com o valor obtido
          userNameHeader.textContent = "Olá " + currentUser;
         } else {
