@@ -72,8 +72,13 @@
         <div class="chart-container">
           <div class="chart-info-wrapper">
             <div class="chart-info-row">
-              <div id="status"></div>
+              <div class="status-row">
+              <div id="status" class="status"></div>
               <h2 id="shortlistedLabel">Status</h2>
+              </div>
+            <div>
+              <div id="resultado-status" class="status"></div>
+            </div>
             </div>
            <span id="statusSelect" onchange="updateStatus()"></span>
           </div>
@@ -119,7 +124,7 @@
             <span>Ultimos 30 dias</span>
           </div>
           <div class="line-chart">
-            <canvas id="chart"></canvas>
+            <canvas id="chart" height="110px"></canvas>
           </div>
           <div class="chart-data-details">
             <div class="chart-details-header"></div>

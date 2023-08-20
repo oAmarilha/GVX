@@ -827,20 +827,18 @@ button {
 
 .chart-info-row{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-content: center;
 
+}
+
+.status-row{
+  display: flex;
 }
 
 .chart-info-row h2{
   margin-left: 6%;  
 }
 
-#chart{
-  width: 100%;
-}
 
-.chart-container-wrapper big{
-  height: 300px;
-}
 
