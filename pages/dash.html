@@ -8,10 +8,8 @@
 
 </head>
 <body>
-
-  
 <div class="container">
-  <!-- <div class="app-left">
+  <div class="app-left">
     <button class="close-menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -31,11 +29,17 @@
       <li class="nav-list-item">
         <a class="nav-list-link" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          Reports
+          Solicitação de saque
+        </a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-list-link" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Historico
         </a>
       </li>
     </ul>
-  </div> -->
+  </div>
   <div class="app-main">
     <div class="main-header-line">
       <h1 id="usernameHeader"></h1>
@@ -134,7 +138,8 @@
             </div>
             <section class="users">
               <button class="btn-voltar" id="btn-voltar" onclick="logout()">Voltar para o Login</button>
-          </section>
+              <button class="button-28" id="btn-saque" onclick="saque()">Solicitar saque</button>
+            </section>
           <div class="loading" style="display: none;">
               <div class="loading-spinner"></div>
           </div>
