@@ -1,15 +1,38 @@
-* {
-    margin:0;
-    padding:0;
-    box-sizing: border-box
-  }
   
+/*Mobile*/
+[class*="col-"] {
+  width: 100%;
+  padding: 10px;
+}  
+/*Outros*/
+@media only screen and (min-width: 1315px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+*{
+  margin: 0px;
+  font-family: Anaktoria;
+  font-size: 18px;
+  box-sizing: border-box;
+}
   
   body {
     background: radial-gradient(circle, #051340 1%, #040f32 100%);
     font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
+    font-size: 18px;
   }
   
   input, button {
@@ -192,7 +215,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 170px;
+    height: 270px;
     width: 600px;
   }
 
@@ -202,7 +225,7 @@
 
   form{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   label{
@@ -221,8 +244,14 @@
     background-color: #0EE3C7;
     border-radius: 20px;
     outline: none;
+    margin: 25px 69px;
   }
 
   .contact-input label {
     padding: 5%;
+  }
+
+  .contact-box{
+    display: flex;
+    flex-direction: row;
   }
