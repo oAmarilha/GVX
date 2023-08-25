@@ -39,11 +39,12 @@ body {
 }
 
 .container {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   position: relative;
-  max-width: 1680px;
+  margin-left: 20px;
+  max-width: 100%;
 }
 
 .app-left {
@@ -72,11 +73,11 @@ body {
 
 .app-main {
   flex: 1;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: var(--app-bg-light);
-  padding: 24px;
   background: radial-gradient(circle, #051340 1%, #040f32 100%);
 }
 
@@ -283,12 +284,12 @@ button {
 }
 
 .line-chart {
-  width: 100%;
+  width: 95%;
   margin-top: 24px;
 }
 
 .chart-container {
-   width: 100%;
+   width: 93%;
     border-radius: 10px;
     background-color: var(--app-bg-dark);
     padding: 16px;
@@ -297,7 +298,7 @@ button {
 }
 
 #first-row{
-  width: 340px;
+  width: 300px;
   height: 90px;
   display: block;
 }
@@ -782,6 +783,7 @@ button {
   .chart-container{
     align-items: center;
     border-radius: 20px;
+    width: 100%;
   }
 
   .chart-info-wrapper h2{
@@ -912,4 +914,26 @@ button {
 .button-28:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+/* Estilizar a barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px; /* Largura da barra de rolagem */
+}
+
+/* Estilizar o track (fundo) da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: #040f32 ;
+  
+}
+
+/* Estilizar o thumb (a alça da barra de rolagem) */
+::-webkit-scrollbar-thumb {
+  background: var(--app-bg-dark);
+  border-radius: 5px;
+}
+
+/* Estilizar o thumb quando o usuário passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #090d16;
 }
