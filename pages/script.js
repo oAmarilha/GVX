@@ -24,7 +24,7 @@ function addValueToScreen(){
              valueElement.textContent = currentCurrency + " " + value;
 			 valueInvested.textContent = currentCurrency + " " + invested;
 			 profit.textContent = currentCurrency + " " + (value - invested);
-			 createChart({july: 0,august: value});
+			 createChart({january:0,february:0,march:0,may:0,june: 0,july: 0,august: value});
             } else {
               console.log('O documento não foi encontrado.');
             }
