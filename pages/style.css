@@ -296,6 +296,16 @@ button {
     align-items: center;
 }
 
+#first-row{
+  width: 340px;
+  height: 90px;
+  display: block;
+}
+
+#resultado-status{
+  font-size: 24px;
+}
+
 .box-alertas{
   height: 70px;
   border-radius: 15px;
@@ -690,6 +700,20 @@ button {
 }
 
 @media screen and (max-width: 1000px) {
+  #first-row.chart-container{
+    width: 100%;
+    height: 250px;
+  }
+
+  #resultado-status {
+    font-size: 50px;
+  }
+
+  #applicationsLabel, #shortlistedLabel, #status, #profit, #invested{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
   .chart-row.two {
     flex-direction: column;
   }
@@ -756,7 +780,8 @@ button {
   }
 
   .chart-container{
-    align-items: center;  
+    align-items: center;
+    border-radius: 20px;
   }
 
   .chart-info-wrapper h2{
@@ -790,15 +815,14 @@ button {
   }
 
   .main-header-line h1 {
-    font-size: 75px;
+    font-size: 65px;
     line-height: 150px;
   }
 
   .btn-voltar{
-    width: auto;
-    height: 4vh;
-    font-size: 27px;
-    margin-left: 55%;
+    width: 96vw;
+    height: 6vh;
+    font-size: 25px;
   }
 
   .status{
@@ -852,7 +876,8 @@ button {
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
-  display: inline-block;
+  /*display: inline-block;*/
+  display: none;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 16px;
   font-weight: 600;

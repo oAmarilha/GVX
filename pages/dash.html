@@ -54,7 +54,7 @@
     </div>
     <div class="chart-row three">
       <div class="chart-container-wrapper">
-        <div class="chart-container">
+        <div id= first-row class="chart-container">
           <div class="chart-info-wrapper">
             <h2 id="applicationsLabel">Valor atual</h2>
             <span id="applicationsNumber"></span>
@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="chart-container-wrapper">
-        <div class="chart-container">
+        <div id= first-row class="chart-container">
           <div class="chart-info-wrapper">
             <div class="chart-info-row">
               <div class="status-row">
@@ -84,10 +84,10 @@
         </div>
       </div>
       <div class="chart-container-wrapper">
-        <div class="chart-container">
+        <div id= first-row class="chart-container">
           <div class="chart-info-wrapper">
-            <h2 id="peopleLabel">Lucro realizado</h2>
-            <span id="peopleNumber"></span>
+            <h2 id="profit">Lucro realizado</h2>
+            <span id="profitNumber"></span>
         </div>
            <div class="chart-svg">
     </svg>
@@ -95,10 +95,10 @@
         </div>
       </div>
       <div class="chart-container-wrapper">
-        <div class="chart-container">
+        <div id= first-row class="chart-container">
           <div class="chart-info-wrapper">
-            <h2 id="peopleLabel">Valor investido</h2>
-            <span id="peopleNumber"></span>
+            <h2 id="invested">Valor investido</h2>
+            <span id="investedNumber"></span>
         </div>
            <div class="chart-svg">
     </svg>
@@ -124,7 +124,7 @@
             </div>
             <section class="users">
               <button class="btn-voltar" id="btn-voltar" onclick="logout()">Voltar para o Login</button>
-              <button class="button-28" id="btn-saque" onclick="saque()"><a href="/pages/saque.html">Solicitar saque</a></button>
+              <button class="button-28" id="btn-saque"  onclick="saque()"><a href="/pages/saque.html">Solicitar saque</a></button>
             </section>
           <div class="loading" style="display: none;">
               <div class="loading-spinner"></div>
@@ -140,6 +140,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
   <script src="../firebase.js"></script>
+  <script src="../authguard.js"></script>
   <script src="../login.js"></script>
   <script src="../logout.js"></script>  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script>
