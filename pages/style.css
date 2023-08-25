@@ -913,3 +913,25 @@ button {
   box-shadow: none;
   transform: translateY(0);
 }
+
+/* Estilizar a barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px; /* Largura da barra de rolagem */
+}
+
+/* Estilizar o track (fundo) da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: #040f32 ;
+  
+}
+
+/* Estilizar o thumb (a alça da barra de rolagem) */
+::-webkit-scrollbar-thumb {
+  background: var(--app-bg-dark);
+  border-radius: 5px;
+}
+
+/* Estilizar o thumb quando o usuário passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #090d16;
+}
