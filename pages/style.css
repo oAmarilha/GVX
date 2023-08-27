@@ -45,6 +45,7 @@ body {
   display: flex;
   position: relative;
   max-width: 1680px;
+  background: radial-gradient(circle, #051340 1%, #040f32 100%);
 }
 
 .app-left {

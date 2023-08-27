@@ -141,7 +141,6 @@
     border-radius: 6px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.10);
     width: 600px;
-    margin-top: 30%;
   }
   
   main .card h2 {
@@ -275,5 +274,10 @@
       
     }
 
+  }
+
+  .box-historic{
+    background: radial-gradient(circle, #051340 1%, #040f32 100%);
+    
   }
   
