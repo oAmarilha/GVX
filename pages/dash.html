@@ -86,6 +86,7 @@
             <section class="users">
               <button class="btn-voltar" id="btn-voltar" onclick="logout()">Voltar para o Login</button>
               <button class="button-28" id="btn-saque"  onclick="saque()"><a href="saque.html">Solicitar saque</a></button>
+              <a href='' download onclick="downloadInvoice()">Invoice</a>
             </section>
           <div class="loading" style="display: none;">
               <div class="loading-spinner"></div>
@@ -98,6 +99,7 @@
 </div>
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-storage-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
   <script src="../firebase.js"></script>
   <script src="../authguard.js"></script>

@@ -55,6 +55,18 @@ function currencyFormat(valor, moeda){
 	return valor.toLocaleString('pt-BR', options);
 }
 
+function downloadInvoice(){
+	const storage = firebase.storage();
+    const storageRef = storage.ref('Invoice/tTgIbATjpNVVfi5QV7HEocaIZRa2/GVX01664.pdf')
+    storageRef.getDownloadURL().then(url => {
+        console.log('URL do arquivo:', url);
+        window.location.href = url;
+        // Agora você pode usar essa URL no seu site para criar links ou embutir em elementos de exibição.
+    }).catch(error => {
+        console.error('Erro ao obter a URL do arquivo:', error);
+    })
+}
+
 function createChart(config){
 	var chart    = document.getElementById('chart').getContext('2d'),
 		gradient = chart.createLinearGradient(0, 0, 0, 450);
