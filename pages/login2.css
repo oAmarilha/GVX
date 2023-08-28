@@ -306,5 +306,15 @@
     flex-direction: column;
   }
   
-  
+@media screen and (max-width: 1000px) {
+    .main-login{
+        flex-direction: column;
+    }
+    .card-login{
+        width: 351px;
+        padding: 3%;
+    }
+
+
+}
   
