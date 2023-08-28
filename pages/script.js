@@ -146,7 +146,7 @@ function setStatusColor(id) {
 		break;
 	  case "processamento":
 		statusElement.style.background = "red";
-		resultadoElement.textContent = "Processamento";
+		resultadoElement.textContent = "Processando";
 		resultadoElement.style.color = "white";    
 
 	
