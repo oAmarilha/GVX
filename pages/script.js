@@ -19,11 +19,13 @@ function addValueToScreen(){
             if (doc.exists) {
               const value = doc.data().money.value;
 			  const currentCurrency = doc.data().money.currency;
-			  const invested = doc.data().money.invested
+			  const invested = doc.data().money.invested;
+			  const profitValue = value - invested;
+			  console.log(typeof(profitValue))
               // Atualizar o conteúdo do <span> com o valor obtido
-             valueElement.textContent = currentCurrency + " " + value;
-			 valueInvested.textContent = currentCurrency + " " + invested;
-			 profit.textContent = currentCurrency + " " + (value - invested);
+             valueElement.textContent = currencyFormat(value, currentCurrency);
+			 valueInvested.textContent = currencyFormat(invested, currentCurrency);
+			 profit.textContent = currencyFormat(profitValue, currentCurrency);
 			 createChart({january:0,february:0,march:0,april:0,may:0,june: 0,july: 0,august: value});
             } else {
               console.log('O documento não foi encontrado.');
@@ -36,6 +38,21 @@ function addValueToScreen(){
         console.log('Nenhum usuário autenticado.');
       }
     });
+}
+
+function currencyFormat(valor, moeda){
+	let options;
+
+	if (moeda === "BRL") {
+	  options = { style: 'currency', currency: 'BRL' };
+	} else if (moeda === "USD") {
+	  options = { style: 'currency', currency: 'USD' };
+	} else {
+	  // Caso a preferência não seja reconhecida, use a moeda padrão (BRL)
+	  options = { style: 'currency', currency: 'BRL' };
+	}
+  
+	return valor.toLocaleString('pt-BR', options);
 }
 
 function createChart(config){
