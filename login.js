@@ -38,3 +38,4 @@ function voltarLogin() {
     document.querySelector('.main-login').style.display = 'flex'; // Exibe o formulário de login
     document.getElementById('password').value = ''
 }
+

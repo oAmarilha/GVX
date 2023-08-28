@@ -995,3 +995,11 @@ label span:nth-child(3) {
 .menu-header{
   margin: 19px 13px;
 }
+
+.box-historico{
+  color: white;
+  border-radius: 20px;
+  background-color: #00cfde;
+  padding: 15px;
+  margin: 65px;
+}
