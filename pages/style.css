@@ -997,9 +997,90 @@ label span:nth-child(3) {
 }
 
 .box-historico{
-  color: white;
   border-radius: 20px;
-  background-color: #00cfde;
+  background: #01081F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 1228px;
+  height: 472px;
+  flex-shrink: 0;
   padding: 15px;
   margin: 65px;
+}
+
+.container .box-historico{
+  color: rgba(255, 255, 255, 0.44);
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.title-historic{
+  font-family: Outfit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 5px;
+  color: white;
+}
+
+.line{
+  background: rgba(6, 199, 210, 0.43);
+  width: 1200px;
+  height: 2px;
+}
+
+.box-historico h3{
+  font-size: 26px;
+  padding: 5px 6px;
+  color: white;
+}
+
+.box-historico h5{
+  font-size: 20px;
+}
+
+.value-historic{
+  font-family: Outfit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 3px;
+}
+
+.box-config .informacoes h2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 39px;
+}
+
+.box-config{
+  border-radius: 20px;
+  background: #01081F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 828px;
+  height: 472px;
+  flex-shrink: 0;
+  padding: 15px;
+  margin: 65px;
+}
+
+.container .box-config{
+  color: rgba(255, 255, 255, 0.44);
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 93px 238px;;
+}
+
+.box-config h3{
+  font-size: 26px;
+  padding: 5px 6px;
+  color: white;
+}
+
+.box-config h5{
+  font-size: 20px;
 }
