@@ -20,21 +20,7 @@
   .col-12 {width: 100%;}
 }
 
-*{
-  margin: 0px;
-  font-family: Anaktoria;
-  font-size: 18px;
-  box-sizing: border-box;
-}
-  
-  body {
-    background: radial-gradient(circle, #051340 1%, #040f32 100%);
-    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
-    font-size: 18px;
-  }
-  
+
   input, button {
     outline:0;
   }
@@ -241,10 +227,11 @@
   form button{
     width: 100px;
     height: 40px;
-    background-color: #0EE3C7;
+    background-color: #FF0080;
     border-radius: 20px;
     outline: none;
     margin: 1px 75px;
+    color: white;
   }
 
   .contact-box{
@@ -256,7 +243,7 @@
 
   .contact-box input{
     border-radius: 20px;
-    padding: 4%;
+    padding: 2%;
     margin: 14px -6px;
   }
 
