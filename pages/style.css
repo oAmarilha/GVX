@@ -36,6 +36,7 @@ body {
   box-sizing:  border-box;
   overflow-y: hidden;
   overflow-x: hidden;
+  flex-direction: column;
 }
 
 .container {
@@ -43,8 +44,8 @@ body {
   height: 100vh;
   display: flex;
   position: relative;
-  margin-left: 20px;
-  max-width: 100%;
+  max-width: 1680px;
+  background: radial-gradient(circle, #051340 1%, #040f32 100%);
 }
 
 .app-left {
@@ -414,7 +415,6 @@ button {
   color: var(--main-color);
   font-size: 12px;
   line-height: 16px;
-  opacity: 0.8;
 }
 .chart-container-header span {
   color: var(--app-logo);
@@ -915,24 +915,231 @@ button {
   transform: translateY(0);
 }
 
-/* Estilizar a barra de rolagem */
-::-webkit-scrollbar {
-  width: 10px; /* Largura da barra de rolagem */
+.container {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-/* Estilizar o track (fundo) da barra de rolagem */
-::-webkit-scrollbar-track {
-  background: #040f32 ;
-  
+.container input {
+  z-index: 2;
 }
 
-/* Estilizar o thumb (a alça da barra de rolagem) */
-::-webkit-scrollbar-thumb {
-  background: var(--app-bg-dark);
-  border-radius: 5px;
+#checkbox-menu {
+  position: absolute;
+  opacity: 0;
 }
 
-/* Estilizar o thumb quando o usuário passar o mouse */
-::-webkit-scrollbar-thumb:hover {
-  background: #090d16;
+label {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  height: 22px;
+  width: 30px;
+}
+
+label span {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  height: 5px;
+  width: 100%;
+  border-radius: 30px;
+  background-color: #00cfde;
+  transition: 0.25s ease-in-out;
+}
+
+/* position das linhas do hamburguinho */
+label span:nth-child(1) {
+  top: 0;
+}
+
+label span:nth-child(2) {
+  top: 8px;
+}
+
+label span:nth-child(3) {
+  top: 16px;
+}
+
+/* o que acontece quando esta checked para cada spam */
+#checkbox-menu:checked + label span:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+
+#checkbox-menu:checked + label span:nth-child(2) {
+  opacity: 0; /*esse vai sumir pq eh o x */
+}
+
+#checkbox-menu:checked + label span:nth-child(3) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+/* agora o menu que some */
+.menu {
+  background-color: #ededed;
+  position: absolute;
+  width: 282px;
+  padding: 80px;
+  padding-top: 150px;
+  /* para mover */
+  margin: -100px 0 0 -50px;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transform-origin: 0% 0%;
+
+  list-style-type: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+.menu li {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 22px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu li:hover {
+  color: tomato;
+  font-weight: bold;
+}
+
+#checkbox-menu:checked ~ ul {
+  transform: none;
+}
+
+.menu-header{
+  margin: 19px 13px;
+}
+
+.box-historico{
+  border-radius: 20px;
+  background: #01081F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 1228px;
+  height: 472px;
+  flex-shrink: 0;
+  padding: 15px;
+  margin: 65px;
+}
+
+.container .box-historico{
+  color: rgba(255, 255, 255, 0.44);
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.title-historic{
+  font-family: Outfit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 5px;
+  color: white;
+}
+
+.line{
+  background: rgba(6, 199, 210, 0.43);
+  width: 1200px;
+  height: 2px;
+}
+
+.box-historico h3{
+  font-size: 26px;
+  padding: 5px 6px;
+  color: white;
+}
+
+.box-historico h5{
+  font-size: 20px;
+}
+
+.value-historic{
+  font-family: Outfit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 3px;
+}
+
+.box-config .informacoes h2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 39px;
+}
+
+.box-config{
+  border-radius: 20px;
+  background: #01081F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 828px;
+  height: 472px;
+  flex-shrink: 0;
+  padding: 15px;
+  margin: 65px;
+}
+
+.container .box-config{
+  color: rgba(255, 255, 255, 0.44);
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 93px 238px;;
+}
+
+.box-config h3{
+  font-size: 26px;
+  padding: 5px 6px;
+  color: white;
+}
+
+.box-config h5{
+  font-size: 20px;
+}
+
+
+.box-saque .informacoes h2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 39px;
+}
+
+.box-saque{
+  border-radius: 20px;
+  background: #01081F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 628px;
+  height: 272px;
+  flex-shrink: 0;
+  padding: 15px;
+  margin: 225px 355px;
+}
+
+.container .box-saque{
+  color: rgba(255, 255, 255, 0.44);
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 200px 355px;
+}
+
+.box-saque h3{
+  font-size: 26px;
+  padding: 5px 6px;
+  color: white;
 }

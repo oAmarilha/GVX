@@ -17,7 +17,7 @@ function hideLoading() {
 function login() {
     showLoading();
     firebase.auth().signInWithEmailAndPassword(document.getElementById('username').value, document.getElementById('password').value).then(response => {
-        window.location.href = 'dash.html';
+        window.location.href = 'dashboard.html'
         hideLoading();
     }).catch(error => {
         alert('Usuário ou senha inválidos!');
@@ -38,3 +38,4 @@ function voltarLogin() {
     document.querySelector('.main-login').style.display = 'flex'; // Exibe o formulário de login
     document.getElementById('password').value = ''
 }
+

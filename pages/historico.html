@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="/pages/saque.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="/pages/style.css">
+
+  </head>
+  <body>
+    <div class="container">
+    <div class="menu-header">
+      <!-- hamburguer starts here -->
+      <input type="checkbox" id="checkbox-menu">
+      <label for="checkbox-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </label>
+      <!-- hamburguer ends here -->
+      <ul class="menu"> 
+          <a href="dash.html"><li>Dashboard</li></a>
+          <a href="config.html"><li>Configuração</li></a>
+          <a href="historico.html"><li>Histórico</li></a>
+        </ul>
+    </div>
+    <div class="box-historico">
+       <h3>Histórico</h3>
+        <div class="title-historic">
+          <h5>Valor</h5>
+          <h5>Data</h5>
+          <h5>Horário</h5>
+        </div>
+       <div class="line"></div>
+       <div class="value-historic">
+        <h2>R$ 2000,00</h2>
+        <h2>16/08/2002</h2>
+        <h2>12:39:20</h2>
+      </div>
+     <div class="line"></div>
+     <div class="value-historic">
+      <h2>R$ 2000,00</h2>
+      <h2>16/08/2002</h2>
+      <h2>12:39:20</h2>
+    </div>
+    <div class="line"></div>
+    <div class="value-historic">
+     <h2>R$ 2000,00</h2>
+     <h2>16/08/2002</h2>
+     <h2>12:39:20</h2>
+   </div>
+   <div class="line"></div>
+    </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="../firebase.js"></script>
+    <script src="../login.js"></script>
+    <script src="../logout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="../username.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="/pages/saque.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="/pages/style.css">
+
+  </head>
+  <body>
+    <div class="container">
+    <div class="menu-header">
+      <!-- hamburguer starts here -->
+      <input type="checkbox" id="checkbox-menu">
+      <label for="checkbox-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </label>
+      <!-- hamburguer ends here -->
+      <ul class="menu"> 
+          <a href="dash.html"><li>Dashboard</li></a>
+          <a href="config.html"><li>Configuração</li></a>
+          <a href="historico.html"><li>Histórico</li></a>
+        </ul>
+    </div>
+    <div class="box-config">
+      <h3>Informações</h3>
+      <div class="informacoes">
+        <h2>Nome: </h2>
+        <h2>E-mail: </h2>
+        <h2>Número: </h2>    
+        <h2>Valor investido: </h2>
+        <h2>Lucro recebido: </h2> 
+        <h2><a href="saque.html">Saque</a></h2>
+      </div>
+    </div>
+        <!-- <main>
+        <div class="balance card">
+          <h2>Saldo</h2>
+          <span class="green"> R$ 100.000,00 </span>
+        </div> 
+
+        <div class="cardtransactions">
+          <h1>Solicitação de saque</h1>
+          <div class="cardtransactions-input">
+            <form action="https://api.staticforms.xyz/submit" method="post">
+              <div class="contact-box">
+              <div class="contact-input">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Digite seu email"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+              <div class="contact-input">
+                <label>Mensagem</label>
+                <input
+                  name="message"
+                  cols="30"
+                  rows="10"
+                  placeholder="Digite o valor"
+                  required
+                  type="number"
+                />
+              </div>
+              </div>
+              <button type="submit">Enviar</button>
+
+              <input
+                type="hidden"
+                name="accessKey"
+                value="64226068-b383-4205-af3a-c0a7fdab444f"
+              />
+              <input
+                type="hidden"
+                name="redirectTo"
+                value="http://127.0.0.1:5501/pages/obrigado.html"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      </main>  -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="../firebase.js"></script>
+    <script src="../login.js"></script>
+    <script src="../logout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="../username.js"></script>
+  </body>
+</html>
