@@ -15,9 +15,8 @@ firebase.auth().onAuthStateChanged((user) => {
           const currentStatus = doc.data().money.status;
           console.log(currentStatus)
           console.log(currentUser);
-          setStatusColor(currentStatus)
           // Atualizar o conteúdo do <span> com o valor obtido
-         userNameHeader.textContent = "Bem-Vindo de volta " + currentUser;
+         userNameHeader.textContent = "Bem vindo, " + currentUser + "!!!";
         } else {
           console.log('O documento não foi encontrado.');
         }

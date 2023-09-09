@@ -3,7 +3,8 @@ addValueToScreen();
 
 function addValueToScreen(){
     const valueElement = document.getElementById('applicationsNumber');
-	const valueInvested = document.getElementById('investedNumber');
+	const valueInvested = document.getElementById('investedNumber');	
+	const shipments = document.getElementById('shipments');
 	const profit = document.getElementById('profitNumber');
     // Verificar o estado de autenticação do usuário
     firebase.auth().onAuthStateChanged((user) => {
@@ -21,12 +22,14 @@ function addValueToScreen(){
 			  const currentCurrency = doc.data().money.currency;
 			  const invested = doc.data().money.invested;
 			  const profitValue = value - invested;
+			  const shipmentsValue = doc.data().money.shipments
 			  console.log(typeof(profitValue))
               // Atualizar o conteúdo do <span> com o valor obtido
              valueElement.textContent = currencyFormat(value, currentCurrency);
 			 valueInvested.textContent = currencyFormat(invested, currentCurrency);
 			 profit.textContent = currencyFormat(profitValue, currentCurrency);
-			 createChart({january:0,february:0,march:0,april:0,may:0,june: 0,july: 0,august: value});
+			 shipments.textContent = currencyFormat(shipmentsValue);
+			 //createChart({january:0,february:0,march:0,april:0,may:0,june: 0,july: 0,august: value});
             } else {
               console.log('O documento não foi encontrado.');
             }
@@ -40,20 +43,16 @@ function addValueToScreen(){
     });
 }
 
-function currencyFormat(valor, moeda){
-	let options;
-
+function currencyFormat(valor, moeda) {
 	if (moeda === "BRL") {
-	  options = { style: 'currency', currency: 'BRL' };
+	  return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 	} else if (moeda === "USD") {
-	  options = { style: 'currency', currency: 'USD' };
+	  return valor.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 	} else {
-	  // Caso a preferência não seja reconhecida, use a moeda padrão (BRL)
-	  options = { style: 'currency', currency: 'BRL' };
+	  // Se a moeda não for especificada, formate apenas com base nas casas decimais
+	  return valor.toLocaleString('pt-BR');
 	}
-  
-	return valor.toLocaleString('pt-BR', options);
-}
+  }
 
 function downloadInvoice() {
     const storage = firebase.storage();
