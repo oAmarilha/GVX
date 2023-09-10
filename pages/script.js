@@ -54,18 +54,6 @@ function currencyFormat(valor, moeda) {
 	}
   }
 
-function downloadInvoice() {
-    const storage = firebase.storage();
-    const storageRef = storage.ref('Invoice/tTgIbATjpNVVfi5QV7HEocaIZRa2/GVX01664.pdf');
-
-    storageRef.getDownloadURL().then(url => {
-        console.log('URL do arquivo:', url);
-        window.open(url, '_blank');
-    }).catch(error => {
-        console.error('Erro ao obter a URL do arquivo:', error);
-    });
-}
-
   var ctx = document.getElementById("chart-bars").getContext("2d");
 
   new Chart(ctx, {
