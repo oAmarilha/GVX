@@ -160,7 +160,7 @@ function downloadInvoice() {
 		  borderWidth: 3,
 		  backgroundColor: gradientStroke1,
 		  fill: true,
-		  data: [50, 40, 5, 220, 500, 250, 400, 230, 500],
+		  data: [50, 40, 500, 220, 500, 250, 400, 230, 500],
 		  maxBarThickness: 6
 
 		},
