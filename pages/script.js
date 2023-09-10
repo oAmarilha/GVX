@@ -22,7 +22,7 @@ function addValueToScreen(){
 			  const currentCurrency = doc.data().money.currency;
 			  const invested = doc.data().money.invested;
 			  const profitValue = value - invested;
-			  const shipmentsValue = doc.data().money.shipments
+			  const shipmentsValue = doc.data().money.shipments;
 			  console.log(typeof(profitValue))
               // Atualizar o conteúdo do <span> com o valor obtido
              valueElement.textContent = currencyFormat(value, currentCurrency);
