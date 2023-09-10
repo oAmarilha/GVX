@@ -5,10 +5,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" href="../icon.jpeg" type="image/x-icon">
-  <link rel="stylesheet" href="saque.css">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    GVX investiments
+    GVX Investiments
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -30,7 +29,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="dashboard.html">
-        <img src="../icon.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold">GVX Investiments</span>
       </a>
     </div>
@@ -102,7 +101,7 @@
         </a>
       </li> 
        <li class="nav-item">
-        <a class="nav-link" onclick="logout()">
+        <a class="nav-link  " href="login2.css">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -131,9 +130,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Página</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Saque</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Perfil</li>
           </ol>
-          <h6 class="text-white font-weight-bolder ms-2">Saque</h6>
+          <h6 class="text-white font-weight-bolder ms-2">Perfil</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -268,54 +267,10 @@
       </div>
     </div>
     <div class="container-fluid py-4">
-      <div class="row">
-       
-        <div class="box-saque">
-          <!-- <div class="balance card">
-            <h2>Saldo</h2>
-            <span class="green"> R$ 100.000,00 </span>
-          </div>  -->
-          <h4>Solicitação de saque</h4>
-          <div class="">
-            <div class="cardtransactions-input">
-              <form action="https://api.staticforms.xyz/submit" method="post">
-                <div class="contact-box">
-                <div class="contact-input">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Digite seu email"
-                    autocomplete="off"
-                    required
-                  />
-                </div>
-                <div class="contact-input">
-                  <label>Valor</label>
-                  <input
-                    name="message"
-                    cols="30"
-                    rows="10"
-                    placeholder="Digite o valor"
-                    required
-                    type="number"
-                  />
-                </div>
-                </div>
-                <button type="submit">Enviar</button>
-  
-                <input
-                  type="hidden"
-                  name="accessKey"
-                  value="64226068-b383-4205-af3a-c0a7fdab444f"
-                />
-                <input
-                  type="hidden"
-                  name="redirectTo" 
-                  value="http://127.0.0.1:5502/pages/obrigado.html"
-                /><a href="obrigado.html"></a>
-              </form>
-            </div>
+      <div class="row">  
+        <div class="col-12">
+          <div class="card-2">
+            <h2>ghhvjh</h2>
           </div>
         </div>
       </div>
@@ -342,12 +297,3 @@
 </body>
 
 </html>
-
-<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
-<script src="../firebase.js"></script>
-<script src="../login.js"></script>
-<script src="../logout.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-<script src="./script.js"></script>
-<script src="../username.js"></script>
