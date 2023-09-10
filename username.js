@@ -1,5 +1,6 @@
 const userNameHeader = document.getElementById('usernameHeader')
 const valueElement = document.getElementById('applicationsNumber');
+const usernameProfile = document.getElementById('profileUsername');
 // Verificar o estado de autenticação do usuário
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -17,6 +18,7 @@ firebase.auth().onAuthStateChanged((user) => {
           console.log(currentUser);
           // Atualizar o conteúdo do <span> com o valor obtido
          userNameHeader.textContent = "Bem vindo, " + currentUser + "!!!";
+         usernameProfile.textContent = currentUser;
         } else {
           console.log('O documento não foi encontrado.');
         }
