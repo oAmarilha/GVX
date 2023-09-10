@@ -13,7 +13,7 @@ function checkPermission(){
             if (!window.location.href.includes('login.html')){
                 window.location.href = "login.html";
             }
-            return;
         }
+        window.onload = checkPermission;
     });
 }

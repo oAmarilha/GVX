@@ -73,7 +73,7 @@ function downloadInvoice() {
 	data: {
 	  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 	  datasets: [{
-		label: "Sales",
+		label: "Valor",
 		tension: 0.4,
 		borderWidth: 0,
 		borderRadius: 4,
@@ -141,7 +141,7 @@ function downloadInvoice() {
   gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
   gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
 
-  var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
   gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
   gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
@@ -152,7 +152,7 @@ function downloadInvoice() {
 	data: {
 	  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 	  datasets: [{
-		  label: "Mobile apps",
+		  label: "Valor data",
 		  tension: 0.4,
 		  borderWidth: 0,
 		  pointRadius: 0,
