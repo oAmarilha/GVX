@@ -137,7 +137,7 @@
     }
   }
   
-  @media only screen (min-width: 360px) {
+  @media only screen and (max-width: 960px) {
     .nav h1,
     .slider h1 {
       font-size: 8vw;
