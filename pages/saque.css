@@ -224,21 +224,12 @@
     margin-left: 60px;
   }
 
-  form button{
-    width: 100px;
-    height: 40px;
-    background-color: #FF0080;
-    border-radius: 20px;
-    outline: none;
-    margin: 1px 75px;
-    color: white;
-  }
+
 
   .contact-box{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    margin: 19px;
+    margin: 21px -58px;
   }
 
   .contact-box input{
@@ -269,6 +260,5 @@
 
   .box-historic{
     background: radial-gradient(circle, #051340 1%, #040f32 100%);
-    
   }
   
