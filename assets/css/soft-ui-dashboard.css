@@ -26739,4 +26739,8 @@ pre[class*="language-"] {
   color: white;
 }
 
+.card-2 {
+  background-color: #00669c;
+  box-shadow: 0 20px 27px 0 rgba(0, 0, 0);
+}
 
