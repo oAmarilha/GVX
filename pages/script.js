@@ -7,12 +7,12 @@ function addValueToScreen(){
 	const shipments = document.getElementById('shipments');
 	const profit = document.getElementById('profitNumber');
     // Verificar o estado de autenticação do usuário
-    firebase.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
         const userUid = user.uid;
 
         // Referência ao documento específico com base no UID do usuário
-        const docRef = firebase.firestore().collection('database').doc(userUid);
+        const docRef = firestore.collection('database').doc(userUid);
 
         // Obter o documento
         docRef.get()
