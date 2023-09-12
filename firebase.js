@@ -86,8 +86,8 @@ function logout(){
     })
 }
 
+function username(){
 const userNameHeader = document.getElementById('usernameHeader')
-const valueElement = document.getElementById('applicationsNumber');
 const usernameProfile = document.getElementById('profileUsername');
 const usernameInfo = document.getElementById('usernameInfo');
 const mailUser = document.getElementById('mailUser');
@@ -96,8 +96,6 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     const userUid = user.uid;
     const userMail = user.email;
-    console.log(userMail);
-    console.log(userUid)
     // Referência ao documento específico com base no UID do usuário
     const docRef = firebase.firestore().collection('database').doc(userUid);
     // Obter o documento
@@ -105,9 +103,6 @@ firebase.auth().onAuthStateChanged((user) => {
       .then((doc) => {
         if (doc.exists) {
           const currentUser = doc.data().money.user;
-          const currentStatus = doc.data().money.status;
-          console.log(currentStatus)
-          console.log(currentUser);
           // Atualizar o conteúdo do <span> com o valor obtido
           try{
             userNameHeader.textContent = "Bem vindo, " + currentUser + "!!!";
@@ -129,22 +124,21 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log('Nenhum usuário autenticado.');
   }
 });
+}
 
-function downloadInvoice() {
+function downloadInvoice(buttonId) {
 	// Verifique se o usuário está autenticado
 	auth.onAuthStateChanged(user => {
 	  if (user) {
 		// Obtenha o UID do usuário atual
 		const uid = user.uid;
-		console.log(uid);
 		// Crie a referência do Firebase Storage com o UID do usuário
-		const storageRef = storage.ref(`Invoice/${uid}/GVX01664.pdf`);
+		const storageRef = storage.ref(`Invoice/${uid}/${buttonId}.pdf`);
   
 		// Obtenha a URL de download e abra em uma nova janela
 		storageRef
 		  .getDownloadURL()
 		  .then(url => {
-			console.log('URL do arquivo:', url);
 			window.open(url, '_blank');
 		  })
 		  .catch(error => {
@@ -156,3 +150,86 @@ function downloadInvoice() {
 	  }
 	});
   }
+
+  function balance(){
+    const valueElement = document.getElementById('value');
+    const idNumber = document.getElementById('idNumber');
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const userUid = user.uid;
+        // Referência ao documento específico com base no UID do usuário
+        const docRef = firestore.collection('database').doc(userUid);
+        // Obter o documento
+        docRef.get()
+          .then((doc) => {
+            if (doc.exists) {
+              const value = doc.data().money.value;
+			        const currentCurrency = doc.data().money.currency;
+              // Atualizar o conteúdo do <span> com o valor obtido
+              idNumber.innerHTML += userUid;
+             valueElement.textContent = currencyFormat(value, currentCurrency);
+            } else {
+              console.log('O documento não foi encontrado.');
+            }
+          })
+          .catch((error) => {
+            console.log('Erro ao obter o documento:', error);
+          });
+      } else {
+        console.log('Nenhum usuário autenticado.');
+      }
+    });
+}
+
+function addValueToScreen(){
+  const valueElement = document.getElementById('applicationsNumber');
+const valueInvested = document.getElementById('investedNumber');	
+const shipments = document.getElementById('shipments');
+const profit = document.getElementById('profitNumber');
+  // Verificar o estado de autenticação do usuário
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      const userUid = user.uid;
+
+      // Referência ao documento específico com base no UID do usuário
+      const docRef = firestore.collection('database').doc(userUid);
+
+      // Obter o documento
+      docRef.get()
+        .then((doc) => {
+          if (doc.exists) {
+            const value = doc.data().money.value;
+      const currentCurrency = doc.data().money.currency;
+      const invested = doc.data().money.invested;
+      const profitValue = value - invested;
+      const shipmentsValue = doc.data().money.shipments;
+            // Atualizar o conteúdo do <span> com o valor obtido
+           valueElement.textContent = currencyFormat(value, currentCurrency);
+     valueInvested.textContent = currencyFormat(invested, currentCurrency);
+     profit.textContent = currencyFormat(profitValue, currentCurrency);
+     shipments.textContent = currencyFormat(shipmentsValue);
+     //createChart({january:0,february:0,march:0,april:0,may:0,june: 0,july: 0,august: value});
+          } else {
+            console.log('O documento não foi encontrado.');
+          }
+        })
+        .catch((error) => {
+          console.log('Erro ao obter o documento:', error);
+        });
+    } else {
+      console.log('Nenhum usuário autenticado.');
+    }
+  });
+}
+
+function currencyFormat(valor, moeda) {
+	if (moeda === "BRL") {
+	  return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+	} else if (moeda === "USD") {
+	  return valor.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+	} else {
+	  // Se a moeda não for especificada, formate apenas com base nas casas decimais
+	  return valor.toLocaleString('pt-BR');
+	}
+  }
+
