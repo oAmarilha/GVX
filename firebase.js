@@ -129,10 +129,13 @@ function downloadInvoice(buttonId) {
 		storageRef
 		  .getDownloadURL()
 		  .then(url => {
-			window.open(url, '_blank');
+			downloadWindow = window.open(url);
+      if (!downloadWindow || downloadWindow.closed || typeof downloadWindow.closed === "undefined") {
+        alert("O navegador bloqueou o pop-up. Habilite as pop-ups nas configurações do navegador.");
+    }
 		  })
 		  .catch(error => {
-			console.error('Erro ao obter a URL do arquivo:', error);
+			alert('Erro ao obter a URL do arquivo:' + error);
 		  });
 	  } else {
 		// O usuário não está autenticado, faça o tratamento adequado aqui
