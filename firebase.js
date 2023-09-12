@@ -182,7 +182,7 @@ function downloadInvoice(buttonId) {
 }
 
 function addValueToScreen(){
-  const valueElement = document.getElementById('applicationsNumber');
+const valueElement = document.getElementById('applicationsNumber');
 const valueInvested = document.getElementById('investedNumber');	
 const shipments = document.getElementById('shipments');
 const profit = document.getElementById('profitNumber');
@@ -232,4 +232,3 @@ function currencyFormat(valor, moeda) {
 	  return valor.toLocaleString('pt-BR');
 	}
   }
-

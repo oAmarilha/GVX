@@ -4591,6 +4591,10 @@ a.nav-link:hover {
 }
 
 .nav-link {
+  border: none;
+  background-color: transparent; /* Remove o fundo */
+  padding: 0; /* Remove o espaçamento interno */
+  cursor: pointer;
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);

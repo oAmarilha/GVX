@@ -1,3 +1,30 @@
+function createSection(section){
+	fetch(section + '.html')
+		.then(response => response.text())
+		.then(menuHTML => {
+			document.getElementById('html').innerHTML = menuHTML;
+			if (section === 'main'){
+			addValueToScreen();
+			createGraphics();
+			} else if (section === 'invoice'){
+				balance();
+			}else if (section === 'profile'){
+				username();
+			}
+		});
+	}
+
+function activeButton(button){
+	var botao = document.getElementById(button);
+	var todosBotoes = document.querySelectorAll("button");
+	for (var i = 0; i < todosBotoes.length; i++) {
+		todosBotoes[i].classList.remove("active");
+	}
+	// Adiciona a palavra à classe do botão
+	botao.classList.add("active");
+}
+
+function createGraphics(){
   var ctx = document.getElementById("chart-bars").getContext("2d");
 
   new Chart(ctx, {
@@ -154,3 +181,4 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 	  },
 	},
   });
+}
