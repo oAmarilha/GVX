@@ -3,7 +3,7 @@
   new Chart(ctx, {
 	type: "bar",
 	data: {
-	  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+	  labels: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
 	  datasets: [{
 		label: "Valor",
 		tension: 0.4,
@@ -11,7 +11,7 @@
 		borderRadius: 4,
 		borderSkipped: false,
 		backgroundColor: "#fff",
-		data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+		data: [0, 0, 0, 0, 0, 0, 0],
 		maxBarThickness: 6
 	  }, ],
 	},
@@ -82,7 +82,7 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
   new Chart(ctx2, {
 	type: "line",
 	data: {
-	  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+	  labels: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
 	  datasets: [{
 		  label: "Valor data",
 		  tension: 0.4,
@@ -92,7 +92,7 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 		  borderWidth: 3,
 		  backgroundColor: gradientStroke1,
 		  fill: true,
-		  data: [50, 40, 500, 220, 500, 250, 400, 230, 500],
+		  data: [0, 0, 0, 0, 0, 0, 0],
 		  maxBarThickness: 6
 
 		},
