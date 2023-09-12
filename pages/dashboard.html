@@ -97,7 +97,7 @@
         </button>
       </li> 
        <li class="nav-item">
-        <a class="nav-link" onclick="logout()">
+        <button id="exit" class="nav-link" onclick="logout(); activeButton(this.id)">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -114,7 +114,7 @@
             </svg>
           </div>
           <span class="nav-link-text ms-1">Sair</span>
-        </a>
+        </buton>
       </li>
     </ul>
   </div>
@@ -135,10 +135,10 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="profile.html" class="nav-link text-body font-weight-bold px-0">
+              <button class="nav-link text-body font-weight-bold px-0" onclick="createSection('profile')">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
-              </a>
+                <span id="usernameHeader" class="d-sm-inline d-none"></span>
+              </button>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -150,9 +150,12 @@
               </a>
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
-              <a  href="https://web.whatsapp.com/send?phone=19981586089" target="_blank" class="nav-link text-body p-0 whatsapp">
+              <a  href="https://wa.me//5511964458291?text=Olá,%20Eu%20gostaria%20de%20solicitar%20suporte" target="_blank" class="nav-link text-body p-0 whatsapp">
                 <i class="fa fa-whatsapp"></i>
               </a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button class="nav-link text-body font-weight-bold px-0" onclick="logout()">Sair</button>
             </li>
           </ul>
         </div>

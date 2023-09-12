@@ -42,40 +42,32 @@ function handleKeyDown(event) {
     }
 }
 
-function showLoading() {
-    const loadingAnimation = document.querySelector('.loading');
-    loadingAnimation.style.display = 'flex';
+function showLoading(loadingAnimation) {
+  loadingAnimation.style.display = 'flex';
 }
 
-function hideLoading() {
-    const loadingAnimation = document.querySelector('.loading');
-    loadingAnimation.style.display = 'none';
+function hideLoading(loadingAnimation) {
+  loadingAnimation.style.display = 'none';
 }
 
 function login() {
-    showLoading();
-    firebase.auth().signInWithEmailAndPassword(document.getElementById('username').value, document.getElementById('password').value).then(response => {
-        window.location.href = 'dashboard.html'
-        hideLoading();
-    }).catch(error => {
-        alert('Usuário ou senha inválidos!');
-        hideLoading();
-    });
+    var loadingAnimation = document.querySelector('.loading');
+    showLoading(loadingAnimation);
+    setTimeout(function() {
+      auth.signInWithEmailAndPassword(document.getElementById('username').value, document.getElementById('password').value)
+          .then(response => {
+              window.location.href = 'dashboard.html'
+              hideLoading(loadingAnimation);
+          })
+          .catch(error => {
+              alert('Usuário e senha não correspondem');
+              hideLoading(loadingAnimation);
+          });  
+  }, 100); // 
+  
+  
 }
 
-function voltarLogin() {
-    document.getElementById("btn-voltar").removeEventListener("click", voltarLogin); // Removendo o ouvinte atual, se existir
-    window.location.href = "login.html";
-      
-    const sections = document.querySelectorAll('.class-id');
-
-    // Percorra a lista de elementos e oculte-os
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
-    document.querySelector('.main-login').style.display = 'flex'; // Exibe o formulário de login
-    document.getElementById('password').value = ''
-}
 
 function logout(){
     auth.signOut().then(() =>{
@@ -86,8 +78,8 @@ function logout(){
     })
 }
 
-function username(){
-const userNameHeader = document.getElementById('usernameHeader')
+function username(allInfo = true){
+const userNameHeader = document.getElementById('usernameHeader');
 const usernameProfile = document.getElementById('profileUsername');
 const usernameInfo = document.getElementById('usernameInfo');
 const mailUser = document.getElementById('mailUser');
@@ -103,16 +95,14 @@ firebase.auth().onAuthStateChanged((user) => {
       .then((doc) => {
         if (doc.exists) {
           const currentUser = doc.data().money.user;
-          // Atualizar o conteúdo do <span> com o valor obtido
-          try{
-            userNameHeader.textContent = "Bem vindo, " + currentUser + "!!!";
-          }catch{
-            usernameProfile.innerHTML = currentUser;
-            usernameInfo.innerHTML += currentUser;
-            mailUser.innerHTML += userMail;
-            
+          if (allInfo === true){
+          userNameHeader.textContent = currentUser;
+          usernameProfile.innerHTML = currentUser;
+          usernameInfo.innerHTML += currentUser;
+          mailUser.innerHTML += userMail;       
+          }else{
+          userNameHeader.textContent = currentUser;
           }
-         
         } else {
           console.log('O documento não foi encontrado.');
         }

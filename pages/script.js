@@ -6,6 +6,7 @@ function createSection(section){
 			if (section === 'main'){
 			addValueToScreen();
 			createGraphics();
+			username(false);
 			} else if (section === 'invoice'){
 				balance();
 			}else if (section === 'profile'){
