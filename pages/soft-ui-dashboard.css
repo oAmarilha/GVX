@@ -4603,6 +4603,11 @@ a.nav-link:hover {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
+.button {
+  cursor: pointer;
+  width: 100%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     transition: none;
