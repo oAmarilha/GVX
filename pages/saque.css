@@ -20,21 +20,7 @@
   .col-12 {width: 100%;}
 }
 
-*{
-  margin: 0px;
-  font-family: Anaktoria;
-  font-size: 18px;
-  box-sizing: border-box;
-}
-  
-  body {
-    background: radial-gradient(circle, #051340 1%, #040f32 100%);
-    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
-    font-size: 18px;
-  }
-  
+
   input, button {
     outline:0;
   }
@@ -130,6 +116,7 @@
     flex-direction:column;
     justify-content: center;
     margin:0 auto;
+    align-items: center;
   }
   
   main .card {
@@ -140,7 +127,6 @@
     border-radius: 6px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.10);
     width: 600px;
-    margin-top: 30%;
   }
   
   main .card h2 {
@@ -238,20 +224,41 @@
     margin-left: 60px;
   }
 
-  form button{
-    width: 100px;
-    height: 40px;
-    background-color: #0EE3C7;
-    border-radius: 20px;
-    outline: none;
-    margin: 25px 69px;
-  }
 
-  .contact-input label {
-    padding: 5%;
-  }
 
   .contact-box{
     display: flex;
     flex-direction: row;
+    margin: 21px -58px;
   }
+
+  .contact-box input{
+    border-radius: 10px;
+    padding: 2%;
+    margin: 5px -2px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    main .card h2{
+      font-size: 2em;
+    }
+
+    main .balance span{
+      font-size: 70px;
+    }
+
+    main .card{
+      width: 782px;
+    }
+
+    .cardtransactions{
+      width: 782px;
+      
+    }
+
+  }
+
+  .box-historic{
+    background: radial-gradient(circle, #051340 1%, #040f32 100%);
+  }
+  
