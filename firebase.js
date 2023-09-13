@@ -79,7 +79,7 @@ function logout(){
 }
 
 function username(allInfo = true){
-const userNameHeader = document.getElementById('usernameHeader');
+const userNameHeader = document.querySelectorAll('.usernameHeader');
 const usernameProfile = document.getElementById('profileUsername');
 const usernameInfo = document.getElementById('usernameInfo');
 const mailUser = document.getElementById('mailUser');
@@ -101,6 +101,9 @@ firebase.auth().onAuthStateChanged((user) => {
           usernameInfo.innerHTML += currentUser;
           mailUser.innerHTML += userMail;       
           }else{
+          for (var i = 0; i < userNameHeader.length; i++) {
+              userNameHeader[i].textContent = currentUser;
+          }
           userNameHeader.textContent = currentUser;
           }
         } else {
@@ -183,7 +186,6 @@ const profit = document.getElementById('profitNumber');
   auth.onAuthStateChanged((user) => {
     if (user) {
       const userUid = user.uid;
-
       // Referência ao documento específico com base no UID do usuário
       const docRef = firestore.collection('database').doc(userUid);
 
@@ -225,3 +227,13 @@ function currencyFormat(valor, moeda) {
 	  return valor.toLocaleString('pt-BR');
 	}
   }
+
+  function buttonClick(botaoId){
+    var botao = document.getElementById(botaoId);
+
+    botao.classList.add('clicado');
+
+    setTimeout(function() {
+        botao.classList.remove('clicado');
+    }, 10000);
+}

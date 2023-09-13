@@ -12,8 +12,16 @@ function createSection(section){
 			}else if (section === 'profile'){
 				username();
 			}
+			pageName(section);
+			activeButton(section);
 		});
 	}
+
+	function pageName(name){
+		var currentPage = document.getElementById('pageName');
+		const namePage = name[0].toUpperCase() + name.substring(1);
+		currentPage.innerHTML = namePage;
+	  }
 
 function activeButton(button){
 	var botao = document.getElementById(button);
