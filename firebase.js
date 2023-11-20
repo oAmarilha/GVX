@@ -253,6 +253,7 @@ function currencyFormat(valor, moeda) {
 
 function createGraphics(){
   var ctx = document.getElementById("chart-bars").getContext("2d");
+  auth.onAuthStateChanged((user) => {
   if (user) {
     const userUid = user.uid;
     // Referência ao documento específico com base no UID do usuário
@@ -262,7 +263,7 @@ function createGraphics(){
     docRef.get()
       .then((doc) => {
         if (doc.exists) {
-    const aug = doc.data().money.aug;
+        const aug = doc.data().money.aug;
         } else {
           console.log('O documento não foi encontrado.');
         }
@@ -334,6 +335,7 @@ function createGraphics(){
         },
         });      
     }
+  });
 
  
 
