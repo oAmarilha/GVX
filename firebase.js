@@ -144,7 +144,14 @@ function downloadInvoice(buttonId) {
                   }
               })
               .catch(error => {
-                  alert('Erro ao obter a URL do arquivo:' + error);
+                  // Verifique se o erro é de objeto não encontrado
+                  if (error.code === 'storage/object-not-found') {
+                      // Se for, oculte o botão
+                      alert('Este invoice ainda não está pronto, verifique em outro momento')
+                  } else {
+                      // Caso contrário, exiba o erro padrão
+                      alert('Erro ao obter a URL do arquivo:' + error);
+                  }
               });
       } else {
           // O usuário não está autenticado, faça o tratamento adequado aqui
