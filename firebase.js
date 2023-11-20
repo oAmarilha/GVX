@@ -327,19 +327,7 @@ function createGraphics(){
         },
       },
       });
-          } else {
-            console.log('O documento não foi encontrado.');
-          }
-        })
-        .catch((error) => {
-          console.log('Erro ao obter o documento:', error);
-        });
-    } else {
-      console.log('Nenhum usuário autenticado.');
-    }
-  });
-
-  var ctx2 = document.getElementById("chart-line").getContext("2d");
+      var ctx2 = document.getElementById("chart-line").getContext("2d");
 
   var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
@@ -366,7 +354,7 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 		  borderWidth: 3,
 		  backgroundColor: gradientStroke1,
 		  fill: true,
-		  data: [0, 0, 0, 0, 0, 0, 0],
+		  data: [sep, 0, 0, 0, 0, 0, 0],
 		  maxBarThickness: 6
 
 		},
@@ -427,5 +415,16 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 		},
 	  },
 	},
+  });
+          } else {
+            console.log('O documento não foi encontrado.');
+          }
+        })
+        .catch((error) => {
+          console.log('Erro ao obter o documento:', error);
+        });
+    } else {
+      console.log('Nenhum usuário autenticado.');
+    }
   });
 }
