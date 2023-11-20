@@ -252,92 +252,92 @@ function currencyFormat(valor, moeda) {
 }
 
 function createGraphics(){
-  var ctx = document.getElementById("chart-bars").getContext("2d");
   auth.onAuthStateChanged((user) => {
-  if (user) {
-    const userUid = user.uid;
-    // Referência ao documento específico com base no UID do usuário
-    const docRef = firestore.collection('database').doc(userUid);
+    if (user) {
+      const userUid = user.uid;
+      // Referência ao documento específico com base no UID do usuário
+      const docRef = firestore.collection('database').doc(userUid);
 
-    // Obter o documento
-    docRef.get()
-      .then((doc) => {
-        if (doc.exists) {
-        const aug = doc.data().money.aug;
-        } else {
-          console.log('O documento não foi encontrado.');
-        }
-      })
-      .catch((error) => {
-        console.log('Erro ao obter o documento:', error);
-      });
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb","Mar"],
-          datasets: [{
-          label: "Valor",
-          tension: 0.4,
-          borderWidth: 0,
-          borderRadius: 4,
-          borderSkipped: false,
-          backgroundColor: "#fff",
-          data: [aug, 0, 0, 0, 0, 0, 0],
-          maxBarThickness: 6
-          }, ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-          legend: {
-            display: false,
+      // Obter o documento
+      docRef.get()
+        .then((doc) => {
+          if (doc.exists) {
+      const august = doc.data().money.aug;
+          } else {
+            console.log('O documento não foi encontrado.');
           }
-          },
-          interaction: {
-          intersect: false,
-          mode: 'index',
-          },
-          scales: {
-          y: {
-            grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
-            },
-            ticks: {
-            suggestedMin: 0,
-            suggestedMax: 500,
-            beginAtZero: true,
-            padding: 15,
-            font: {
-              size: 14,
-              family: "Open Sans",
-              style: 'normal',
-              lineHeight: 2
-            },
-            color: "#fff"
-            },
-          },
-          x: {
-            grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false
-            },
-            ticks: {
-            display: false
-            },
-          },
-          },
-        },
-        });      
+        })
+        .catch((error) => {
+          console.log('Erro ao obter o documento:', error);
+        });
+    } else {
+      console.log('Nenhum usuário autenticado.');
     }
+  var ctx = document.getElementById("chart-bars").getContext("2d");
+  new Chart(ctx, {
+	type: "bar",
+	data: {
+	  labels: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb","Mar"],
+	  datasets: [{
+		label: "Valor",
+		tension: 0.4,
+		borderWidth: 0,
+		borderRadius: 4,
+		borderSkipped: false,
+		backgroundColor: "#fff",
+		data: [0, 0, 0, 0, 0, 0, 0],
+		maxBarThickness: 6
+	  }, ],
+	},
+	options: {
+	  responsive: true,
+	  maintainAspectRatio: false,
+	  plugins: {
+		legend: {
+		  display: false,
+		}
+	  },
+	  interaction: {
+		intersect: false,
+		mode: 'index',
+	  },
+	  scales: {
+		y: {
+		  grid: {
+			drawBorder: false,
+			display: false,
+			drawOnChartArea: false,
+			drawTicks: false,
+		  },
+		  ticks: {
+			suggestedMin: 0,
+			suggestedMax: 500,
+			beginAtZero: true,
+			padding: 15,
+			font: {
+			  size: 14,
+			  family: "Open Sans",
+			  style: 'normal',
+			  lineHeight: 2
+			},
+			color: "#fff"
+		  },
+		},
+		x: {
+		  grid: {
+			drawBorder: false,
+			display: false,
+			drawOnChartArea: false,
+			drawTicks: false
+		  },
+		  ticks: {
+			display: false
+		  },
+		},
+	  },
+	},
   });
-
- 
+});
 
   var ctx2 = document.getElementById("chart-line").getContext("2d");
 
