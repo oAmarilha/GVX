@@ -344,7 +344,7 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
   new Chart(ctx2, {
 	type: "line",
 	data: {
-	  labels: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
+	  labels: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"],
 	  datasets: [{
 		  label: "Valor data",
 		  tension: 0.4,
@@ -427,4 +427,5 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
       console.log('Nenhum usuário autenticado.');
     }
   });
+
 }
