@@ -262,7 +262,7 @@ function createGraphics(){
       docRef.get()
         .then((doc) => {
           if (doc.exists) {
-      const september = doc.data().money.sep;
+      const sep = doc.data().money.sep;
       var ctx = document.getElementById("chart-bars").getContext("2d");
       new Chart(ctx, {
       type: "bar",
@@ -275,7 +275,7 @@ function createGraphics(){
         borderRadius: 4,
         borderSkipped: false,
         backgroundColor: "#fff",
-        data: [september, 0, 0, 0, 0, 0, 0],
+        data: [sep, 0, 0, 0, 0, 0, 0],
         maxBarThickness: 6
         }, ],
       },
@@ -366,7 +366,7 @@ var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 		  borderWidth: 3,
 		  backgroundColor: gradientStroke1,
 		  fill: true,
-		  data: [september, 0, 0, 0, 0, 0, 0],
+		  data: [0, 0, 0, 0, 0, 0, 0],
 		  maxBarThickness: 6
 
 		},
