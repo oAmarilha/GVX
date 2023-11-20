@@ -120,32 +120,38 @@ firebase.auth().onAuthStateChanged((user) => {
 }
 
 function downloadInvoice(buttonId) {
-	// Verifique se o usuário está autenticado
-	auth.onAuthStateChanged(user => {
-	  if (user) {
-		// Obtenha o UID do usuário atual
-		const uid = user.uid;
-		// Crie a referência do Firebase Storage com o UID do usuário
-		const storageRef = storage.ref(`Invoice/${uid}/${buttonId}.pdf`);
-  
-		// Obtenha a URL de download e abra em uma nova janela
-		storageRef
-		  .getDownloadURL()
-		  .then(url => {
-			downloadWindow = window.open(url);
-      if (!downloadWindow || downloadWindow.closed || typeof downloadWindow.closed === "undefined") {
-        alert("O navegador bloqueou o pop-up. Habilite as pop-ups nas configurações do navegador.");
-    }
-		  })
-		  .catch(error => {
-			alert('Erro ao obter a URL do arquivo:' + error);
-		  });
-	  } else {
-		// O usuário não está autenticado, faça o tratamento adequado aqui
-		console.log('Usuário não autenticado.');
-	  }
-	});
-  }
+  // Verifique se o usuário está autenticado
+  auth.onAuthStateChanged(user => {
+      if (user) {
+          // Obtenha o UID do usuário atual
+          const uid = user.uid;
+          // Crie a referência do Firebase Storage com o UID do usuário
+          const storageRef = storage.ref(`Invoice/${uid}/${buttonId}.pdf`);
+
+          // Obtenha a URL de download
+          storageRef
+              .getDownloadURL()
+              .then(url => {
+                  // Abra a nova janela apenas se a URL estiver disponível
+                  if (url) {
+                      const downloadWindow = window.open(url);
+                      if (!downloadWindow || downloadWindow.closed || typeof downloadWindow.closed === "undefined") {
+                          alert("O navegador bloqueou o pop-up. Habilite as pop-ups nas configurações do navegador.");
+                      }
+                  } else {
+                      // Se não houver URL, oculte o botão
+                      document.getElementById(buttonId).style.display = 'none';
+                  }
+              })
+              .catch(error => {
+                  alert('Erro ao obter a URL do arquivo:' + error);
+              });
+      } else {
+          // O usuário não está autenticado, faça o tratamento adequado aqui
+          console.log('Usuário não autenticado.');
+      }
+  });
+}
 
   function balance(){
     const valueElement = document.getElementById('value');
