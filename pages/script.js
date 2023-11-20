@@ -39,7 +39,7 @@ function createGraphics(){
   new Chart(ctx, {
 	type: "bar",
 	data: {
-	  labels: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
+	  labels: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb","Mar"],
 	  datasets: [{
 		label: "Valor",
 		tension: 0.4,
