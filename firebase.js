@@ -263,6 +263,70 @@ function createGraphics(){
         .then((doc) => {
           if (doc.exists) {
       const august = doc.data().money.aug;
+      var ctx = document.getElementById("chart-bars").getContext("2d");
+      new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb","Mar"],
+        datasets: [{
+        label: "Valor",
+        tension: 0.4,
+        borderWidth: 0,
+        borderRadius: 4,
+        borderSkipped: false,
+        backgroundColor: "#fff",
+        data: [august, 0, 0, 0, 0, 0, 0],
+        maxBarThickness: 6
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+        legend: {
+          display: false,
+        }
+        },
+        interaction: {
+        intersect: false,
+        mode: 'index',
+        },
+        scales: {
+        y: {
+          grid: {
+          drawBorder: false,
+          display: false,
+          drawOnChartArea: false,
+          drawTicks: false,
+          },
+          ticks: {
+          suggestedMin: 0,
+          suggestedMax: 500,
+          beginAtZero: true,
+          padding: 15,
+          font: {
+            size: 14,
+            family: "Open Sans",
+            style: 'normal',
+            lineHeight: 2
+          },
+          color: "#fff"
+          },
+        },
+        x: {
+          grid: {
+          drawBorder: false,
+          display: false,
+          drawOnChartArea: false,
+          drawTicks: false
+          },
+          ticks: {
+          display: false
+          },
+        },
+        },
+      },
+      });
           } else {
             console.log('O documento não foi encontrado.');
           }
@@ -273,71 +337,7 @@ function createGraphics(){
     } else {
       console.log('Nenhum usuário autenticado.');
     }
-  var ctx = document.getElementById("chart-bars").getContext("2d");
-  new Chart(ctx, {
-	type: "bar",
-	data: {
-	  labels: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb","Mar"],
-	  datasets: [{
-		label: "Valor",
-		tension: 0.4,
-		borderWidth: 0,
-		borderRadius: 4,
-		borderSkipped: false,
-		backgroundColor: "#fff",
-		data: [0, 0, 0, 0, 0, 0, 0],
-		maxBarThickness: 6
-	  }, ],
-	},
-	options: {
-	  responsive: true,
-	  maintainAspectRatio: false,
-	  plugins: {
-		legend: {
-		  display: false,
-		}
-	  },
-	  interaction: {
-		intersect: false,
-		mode: 'index',
-	  },
-	  scales: {
-		y: {
-		  grid: {
-			drawBorder: false,
-			display: false,
-			drawOnChartArea: false,
-			drawTicks: false,
-		  },
-		  ticks: {
-			suggestedMin: 0,
-			suggestedMax: 500,
-			beginAtZero: true,
-			padding: 15,
-			font: {
-			  size: 14,
-			  family: "Open Sans",
-			  style: 'normal',
-			  lineHeight: 2
-			},
-			color: "#fff"
-		  },
-		},
-		x: {
-		  grid: {
-			drawBorder: false,
-			display: false,
-			drawOnChartArea: false,
-			drawTicks: false
-		  },
-		  ticks: {
-			display: false
-		  },
-		},
-	  },
-	},
   });
-});
 
   var ctx2 = document.getElementById("chart-line").getContext("2d");
 
