@@ -34,33 +34,30 @@ function activeButton(button){
 }
 
     // Function to format the currency input
-function formatarValor(input) {
-	// Remove non-numeric characters
-	let rawValue = input.value.replace(/[^\d]/g, '');
-
-	// Parse the numeric value
-	let numericValue = parseFloat(rawValue);
-
-	// Check if the numeric value is a valid number
-	if (!isNaN(numericValue)) {
-		// Format the value as currency with fixed zero cents
-		let formattedValue = new Intl.NumberFormat('pt-BR', {
-			style: 'currency',
-			currency: 'BRL',
-			minimumFractionDigits: 2,
-			maximumFractionDigits: 2
-		}).format(numericValue);
-
-		// Remove the cents if .00
-		formattedValue = formattedValue.replace(',00', '');
-
-		// Update the input value
-		input.value = formattedValue;
-	} else {
-		// If not a valid number, set the value to an empty string
-		input.value = '';
+	function formatarValor(input) {
+		// Remove non-numeric characters
+		let rawValue = input.value.replace(/[^\d]/g, '');
+	
+		// Parse the numeric value
+		let numericValue = parseFloat(rawValue);
+	
+		// Check if the numeric value is a valid number
+		if (!isNaN(numericValue)) {
+			// Format the value as currency with fixed two cents
+			let formattedValue = new Intl.NumberFormat('pt-BR', {
+				style: 'currency',
+				currency: 'BRL',
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2
+			}).format(numericValue / 100); // Divida por 100 para lidar com os centavos
+	
+			// Update the input value
+			input.value = formattedValue;
+		} else {
+			// If not a valid number, set the value to an empty string
+			input.value = '';
+		}
 	}
-}
 
 // Function to handle withdrawal button click (replace with your logic)
 function handleWithdrawal() {
