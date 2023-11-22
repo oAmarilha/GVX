@@ -43,14 +43,16 @@ function formatarValor(input) {
 
 	// Check if the numeric value is a valid number
 	if (!isNaN(numericValue)) {
-		// Format the value as currency without cents
 		// Format the value as currency with fixed zero cents
 		let formattedValue = new Intl.NumberFormat('pt-BR', {
 			style: 'currency',
 			currency: 'BRL',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
+			minimumFractionDigits: 2,
+			maximumFractionDigits: 2
 		}).format(numericValue);
+
+		// Remove the cents if .00
+		formattedValue = formattedValue.replace(',00', '');
 
 		// Update the input value
 		input.value = formattedValue;
