@@ -1,82 +1,78 @@
-<!-- Withdrawal Page -->
-<div id="withdrawal" class="container-fluid py-4">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header mx-4 p-3 text-center">
-                    <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                        <i class="fas fa-money-bill-wave opacity-10"></i>
+<section>
+    <div id="html"><!-- Withdrawal Page -->
+        <div id="withdrawal" class="container-fluid py-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header mx-4 p-3 text-center">
+                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                <i class="fas fa-money-bill-wave opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0 p-3 text-center">
+                            <h6 class="text-center mb-0">Valor do Saque</h6>
+                            <input id="withdrawalAmount" type="text" class="form-control text-center" placeholder="R$ 0,00" oninput="formatarValor(this)" pattern="[0-9]*">
+                        </div>
                     </div>
                 </div>
-                <div class="card-body pt-0 p-3 text-center">
-                    <h6 class="text-center mb-0">Valor do Saque</h6>
-                    <input id="withdrawalAmount" type="text" class="form-control text-center" placeholder="R$ 0,00">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header mx-4 p-3 text-center">
+                            <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                <i class="fas fa-key opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0 p-3 text-center">
+                            <h6 class="text-center mb-0">Chave Pix</h6>
+                            <input id="pixKey" type="text" class="form-control text-center" placeholder="Digite sua chave Pix">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <button id="withdrawalButton" class="btn btn-primary" onclick="handleWithdrawal()">Enviar</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header mx-4 p-3 text-center">
-                    <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                        <i class="fas fa-key opacity-10"></i>
-                    </div>
-                </div>
-                <div class="card-body pt-0 p-3 text-center">
-                    <h6 class="text-center mb-0">Chave Pix</h6>
-                    <input id="pixKey" type="text" class="form-control text-center" placeholder="Digite sua chave Pix">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 mt-4">
-            <button id="withdrawalButton" class="btn btn-primary">Enviar</button>
-        </div>
+
+        <script>
+            // Function to format the currency input
+            function formatarValor(input) {
+                // Remove non-numeric characters
+                let rawValue = input.value.replace(/[^\d]/g, '');
+
+                // Parse the numeric value
+                let numericValue = parseFloat(rawValue);
+
+                // Check if the numeric value is a valid number
+                if (!isNaN(numericValue)) {
+                    // Format the value as currency
+                    let formattedValue = new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(numericValue / 100); // Divida por 100 para lidar com os centavos
+
+                    // Update the input value
+                    input.value = formattedValue;
+                } else {
+                    // If not a valid number, set the value to an empty string
+                    input.value = '';
+                }
+            }
+
+            // Function to handle withdrawal button click (replace with your logic)
+            function handleWithdrawal() {
+                // Retrieve values from the input fields
+                let withdrawalAmount = document.getElementById('withdrawalAmount').value.replace(/[^\d]/g, ''); // Remova caracteres não numéricos
+                let pixKey = document.getElementById('pixKey').value;
+
+                // Converta o valor para centavos antes de enviar (remova o R$ e formate)
+                let numericValue = parseFloat(withdrawalAmount) / 100;
+
+                // Substitua isso pela sua lógica de saque
+                // Por enquanto, registre os valores no console
+                console.log('Valor do Saque:', numericValue);
+                console.log('Chave Pix:', pixKey);
+            }
+        </script>
     </div>
-</div>
-
-<script>
-    // Function to format the currency input
-    function formatCurrencyInput(input) {
-        // Remove non-numeric characters
-        let rawValue = input.value.replace(/[^\d]/g, '');
-
-        // Parse the numeric value
-        let numericValue = parseFloat(rawValue);
-
-        // Check if the numeric value is a valid number
-        if (!isNaN(numericValue)) {
-            // Format the value as currency
-            let formattedValue = new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            }).format(numericValue);
-
-            // Update the input value
-            input.value = formattedValue;
-        } else {
-            // If not a valid number, set the value to an empty string
-            input.value = '';
-        }
-    }
-
-    // Event listener for input change
-    document.getElementById('withdrawalAmount').addEventListener('input', function () {
-        formatCurrencyInput(this);
-    });
-
-    // Function to handle withdrawal button click (replace with your logic)
-    function handleWithdrawal() {
-        // Retrieve values from the input fields
-        let withdrawalAmount = document.getElementById('withdrawalAmount').value;
-        let pixKey = document.getElementById('pixKey').value;
-
-        // Replace this with your withdrawal logic
-        // For now, log the values to the console
-        console.log('Withdrawal Amount:', withdrawalAmount);
-        console.log('Pix Key:', pixKey);
-    }
-
-    // Event listener for withdrawal button click
-    document.getElementById('withdrawalButton').addEventListener('click', function () {
-        handleWithdrawal();
-    });
-</script>
+</section>
