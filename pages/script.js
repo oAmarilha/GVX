@@ -33,7 +33,7 @@ function activeButton(button){
 	botao.classList.add("active");
 }
 
-// Function to format the currency input
+    // Function to format the currency input
 function formatarValor(input) {
 	// Remove non-numeric characters
 	let rawValue = input.value.replace(/[^\d]/g, '');
@@ -43,10 +43,12 @@ function formatarValor(input) {
 
 	// Check if the numeric value is a valid number
 	if (!isNaN(numericValue)) {
-		// Format the value as currency
+		// Format the value as currency without cents
 		let formattedValue = new Intl.NumberFormat('pt-BR', {
 			style: 'currency',
-			currency: 'BRL'
+			currency: 'BRL',
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0
 		}).format(numericValue / 100); // Divida por 100 para lidar com os centavos
 
 		// Update the input value
@@ -65,6 +67,9 @@ function handleWithdrawal() {
 
 	// Converta o valor para centavos antes de enviar (remova o R$ e formate)
 	let numericValue = parseFloat(withdrawalAmount) / 100;
+
+	// Arredonde o valor para o inteiro mais próximo
+	numericValue = Math.round(numericValue);
 
 	// Substitua isso pela sua lógica de saque
 	// Por enquanto, registre os valores no console
