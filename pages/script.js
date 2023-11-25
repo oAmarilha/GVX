@@ -88,13 +88,18 @@ function sendEmail(withdrawalAmount, pixKey) {
 	};
   
 	fetch(url, {
-	  method: 'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify(emailData),
-	})
-	  .then(response => response.json())
-	  .then(data => console.log(data))
-	  .catch(error => console.error('Erro ao enviar o e-mail:', error));
+		method: 'POST',
+		headers: {
+		  'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(emailData),
+	  })
+		.then(response => {
+		  if (!response.ok) {
+			throw new Error(`Erro na solicitação: ${response.statusText}`);
+		  }
+		  return response.json();
+		})
+		.then(data => console.log(data))
+		.catch(error => console.error('Erro ao enviar o e-mail:', error));
   }
