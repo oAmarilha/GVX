@@ -61,45 +61,37 @@ function activeButton(button){
 
 // Function to handle withdrawal button click (replace with your logic)
 function handleWithdrawal() {
-	// Retrieve values from the input fields
-	let withdrawalAmount = document.getElementById('withdrawalAmount').value.replace(/[^\d]/g, ''); // Remova caracteres não numéricos
-	let pixKey = document.getElementById('pixKey').value;
+    // Retrieve values from the input fields
+    let withdrawalAmount = document.getElementById('withdrawalAmount').value.replace(/[^\d]/g, ''); // Remova caracteres não numéricos
+    let pixKey = document.getElementById('pixKey').value;
 
-	// Converta o valor para centavos antes de enviar (remova o R$ e formate)
-	let numericValue = parseFloat(withdrawalAmount) / 100;
+    // Converta o valor para centavos antes de enviar (remova o R$ e formate)
+    let numericValue = parseFloat(withdrawalAmount) / 100;
 
-	// Arredonde o valor para o inteiro mais próximo
-	numericValue = Math.round(numericValue);
+    // Arredonde o valor para o inteiro mais próximo
+    numericValue = Math.round(numericValue);
 
-	// Substitua isso pela sua lógica de saque
-	// Por enquanto, registre os valores no console
-	console.log('Valor do Saque:', numericValue);
-	console.log('Chave Pix:', pixKey);
-	sendEmail(numericValue, pixKey);
+    // Dados a serem enviados para o FormsPree
+    const formData = {
+        'Valor do Saque': numericValue,
+        'Chave Pix': pixKey,
+    };
+
+    // Envia os dados para o FormsPree
+    fetch('https://formspree.io/f/xeqbbovw', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Faça algo com a resposta, se necessário
+        console.log('Resposta do FormsPree:', data);
+    })
+    .catch(error => {
+        // Lida com erros
+        console.error('Erro ao enviar dados para o FormsPree:', error);
+    });
 }
-
-function sendEmail(withdrawalAmount, pixKey) {
-	const url = 'https://react-auth-22e3e.firebaseapp.com/sendEmail'; // Substitua com o URL correto do seu projeto Firebase
-  
-	const emailData = {
-	  to: 'gvxcapitalgroups@gmail.com',
-	  subject: 'Assunto do E-mail',
-	  text: `Valor do Saque: ${withdrawalAmount}\nChave Pix: ${pixKey}`,
-	};
-  
-	fetch(url, {
-		method: 'POST',
-		headers: {
-		  'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(emailData),
-	  })
-		.then(response => {
-		  if (!response.ok) {
-			throw new Error(`Erro na solicitação: ${response.statusText}`);
-		  }
-		  return response.json();
-		})
-		.then(data => console.log(data))
-		.catch(error => console.error('Erro ao enviar o e-mail:', error));
-  }
