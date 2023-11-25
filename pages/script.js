@@ -75,4 +75,26 @@ function handleWithdrawal() {
 	// Por enquanto, registre os valores no console
 	console.log('Valor do Saque:', numericValue);
 	console.log('Chave Pix:', pixKey);
+	sendEmail(numericValue, pixKey);
 }
+
+function sendEmail(withdrawalAmount, pixKey) {
+	const url = 'https://react-auth-22e3e.firebaseapp.com/sendEmail'; // Substitua com o URL correto do seu projeto Firebase
+  
+	const emailData = {
+	  to: 'gvxcapitalgroups@gmail.com',
+	  subject: 'Assunto do E-mail',
+	  text: `Valor do Saque: ${withdrawalAmount}\nChave Pix: ${pixKey}`,
+	};
+  
+	fetch(url, {
+	  method: 'POST',
+	  headers: {
+		'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify(emailData),
+	})
+	  .then(response => response.json())
+	  .then(data => console.log(data))
+	  .catch(error => console.error('Erro ao enviar o e-mail:', error));
+  }
