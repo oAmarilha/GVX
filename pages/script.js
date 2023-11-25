@@ -103,5 +103,5 @@ function handleWithdrawal() {
 
 function returnToIndex() {
     // Redirecione para a página inicial ou realize qualquer outra ação desejada
-    window.location.href = 'index.html';
+    createSection('main');
 }
