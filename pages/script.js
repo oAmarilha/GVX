@@ -94,4 +94,14 @@ function handleWithdrawal() {
         // Lida com erros
         console.error('Erro ao enviar dados para o FormsPree:', error);
     });
+
+	document.getElementById('withdrawalSection').style.display = 'none';
+
+    // Exiba a mensagem de auditoria
+    document.getElementById('auditMessage').style.display = 'block';
+}
+
+function returnToIndex() {
+    // Redirecione para a página inicial ou realize qualquer outra ação desejada
+    window.location.href = 'index.html';
 }
