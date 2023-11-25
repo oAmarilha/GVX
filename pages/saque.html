@@ -36,16 +36,23 @@
     </div>
 </section>
 
-<div id="auditMessage" style="display: none;" class="container-fluid py-4">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h6 class="text-center mb-3" style="color: #5e72e4;">Aguardando Auditoria</h6>
-                    <p id="auditMessageText" class="text-muted">O pedido de saque será auditado. Se necessário, entraremos em contato.</p>
-                    <button class="btn btn-primary" onclick="returnToIndex()">OK</button>
+<section> 
+    <div id="auditMessage" style="display: none;" class="container-fluid py-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h6 class="text-center mb-3" style="color: #5e72e4;">Aguardando Auditoria</h6>
+                        <p id="auditMessageText" class="text-muted">O pedido de saque será auditado. Se necessário, entraremos em contato.</p>
+                        <button class="btn btn-primary" onclick="returnToIndex()">OK</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    
+    <!-- Adicione dentro do body -->
+    <div class="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+</section>
