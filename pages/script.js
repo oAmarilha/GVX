@@ -1,21 +1,76 @@
-function createSection(section){
-	fetch(section + '.html')
-		.then(response => response.text())
-		.then(menuHTML => {
-			document.getElementById('html').innerHTML = menuHTML;
-			if (section === 'main'){
-			addValueToScreen();
-			createGraphics();
-			username(false);
-			} else if (section === 'invoice'){
-				balance();
-			}else if (section === 'profile'){
-				username();
-			}
-			pageName(section);
-			activeButton(section);
-		});
-	}
+// Função para verificar se a solicitação de saque está ativa
+function checkWithdrawalStatus() {
+    const userUid = firebase.auth().currentUser.uid;
+
+    // Referência ao documento específico com base no UID do usuário
+    const docRef = firestore.collection('database').doc(userUid);
+
+    // Obter o documento do usuário
+    docRef.get()
+        .then((doc) => {
+            if (doc.exists) {
+                const withdrawalRequestActive = doc.data().money.withdrawalRequest;
+
+                // Verificar se a solicitação de saque está ativa
+                if (withdrawalRequestActive) {
+                    // Se estiver ativa, vá diretamente para a mensagem de auditoria
+                    document.getElementById('auditMessage').style.display = 'block';
+
+                    // Esconda a seção do formulário de saque
+                    document.getElementById('withdrawalSection').style.display = 'none';
+                } else {
+                    // Se não estiver ativa, verifique o valor de money.status
+                    const withdrawalStatus = doc.data().money.status;
+
+                    // Se o status for falso, mostre a seção de saque
+                    if (!withdrawalStatus) {
+                        document.getElementById('withdrawalSection').style.display = 'block';
+                    } else {
+                        // Se o status for verdadeiro, abra o formulário de saque
+                        createSection('saque');
+                    }
+                }
+            } else {
+                console.log('O documento do usuário não foi encontrado.');
+            }
+        })
+        .catch((error) => {
+            console.log('Erro ao obter o documento do usuário:', error);
+        });
+}
+
+// Modifique a função createSection para chamar a função de verificação apenas quando necessário
+function createSection(section) {
+    // Verifica se a seção já está carregada
+    const currentHTML = document.getElementById('html').innerHTML;
+
+    fetch(section + '.html')
+        .then(response => response.text())
+        .then(menuHTML => {
+            // Adiciona uma verificação para evitar atualizações desnecessárias
+            if (menuHTML !== currentHTML) {
+                document.getElementById('html').innerHTML = menuHTML;
+
+                if (section === 'main') {
+                    addValueToScreen();
+                    createGraphics();
+                    username(false);
+                } else if (section === 'invoice') {
+                    balance();
+                } else if (section === 'profile') {
+                    username();
+                }
+
+                pageName(section);
+                activeButton(section);
+
+                // Seção específica para verificar o status de saque
+                if (section === 'saque') {
+                    checkWithdrawalStatus();
+                }
+            }
+        });
+}
 
 	function pageName(name){
 		var currentPage = document.getElementById('pageName');
@@ -81,23 +136,36 @@ function activeButton(button){
 		// Arredonde o valor para o inteiro mais próximo
 		numericValue = Math.round(numericValue);
 	
-		// Dados a serem enviados para o FormsPree
-		const formData = {
-			'Valor do Saque': numericValue,
-			'Chave Pix': pixKey,
-		};
+		// UID do usuário logado
+		const userUid = firebase.auth().currentUser.uid;
 	
-		// Envia os dados para o FormsPree
-		fetch('https://formspree.io/f/xeqbbovw', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(formData),
+		// Referência ao documento específico com base no UID do usuário
+		const docRef = firestore.collection('database').doc(userUid);
+	
+		// Adicione uma entrada no documento do usuário indicando a solicitação de saque
+		docRef.update({
+			'money.withdrawalRequest': true,
+		})
+		.then(() => {
+			// Dados a serem enviados para o FormsPree
+			const formData = {
+				'Valor do Saque': numericValue,
+				'Chave Pix': pixKey,
+				'UID do Usuário': userUid,
+			};
+	
+			// Envia os dados para o FormsPree
+			return fetch('https://formspree.io/f/xeqbbovw', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
 		})
 		.then(response => response.json())
 		.then(data => {
-			// Faça algo com a resposta, se necessário
+			// Faça algo com a resposta do FormsPree, se necessário
 			console.log('Resposta do FormsPree:', data);
 		})
 		.catch(error => {
@@ -108,13 +176,10 @@ function activeButton(button){
 			// Esconder a animação de loading após 2 segundos
 			setTimeout(() => {
 				hideLoading(loadingAnimation);
-	
 				// Exiba a mensagem de auditoria após o carregamento
 				document.getElementById('auditMessage').style.display = 'block';
 			}, 500);
-
 		});
-	
 		document.getElementById('withdrawalSection').style.display = 'none';
 	}
 
